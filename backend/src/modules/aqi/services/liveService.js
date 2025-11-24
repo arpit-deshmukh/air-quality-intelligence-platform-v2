@@ -1,5 +1,5 @@
 import { cities } from "../../../config/cities.js";
-import { getOpenMeteoData } from "../providers/OpenMeteoProvider.js";
+import { getOpenMeteoData } from "../providers/openMeteoProvider.js";
 import { calculateAQI } from "../utils/calculateAQI.js";
 
 export const getLiveAqiService = async (cityName) => {
