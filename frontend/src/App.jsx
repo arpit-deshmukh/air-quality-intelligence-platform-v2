@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage.jsx";
 import Explore from "./pages/Explore.jsx";
 import Compare from "./pages/Compare.jsx"
 import Meta from "./pages/Meta.jsx"
@@ -18,7 +18,8 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        
+        <Route path="/" element={<HomePage />} />
       <Route path="/city/:cityName" element={<City />} />
       <Route path="/analytics" element={<Analytics />} />
         <Route path="/explore" element={<Explore />} />
