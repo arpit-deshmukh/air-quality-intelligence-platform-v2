@@ -1,18 +1,28 @@
 import { useState } from "react";
 import { fetchLiveAQI } from "../api/aqi";
 import AQICard from "../components/cards/AQICard";
+import Loader from "../components/common/Loader";
+import ErrorBox from "../components/common/ErrorBox";
 
 export default function Home() {
   const [city, setCity] = useState("Delhi");
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const getAQI = async () => {
+    setLoading(true);
+    setError("");
+    setData(null);
+
     try {
       const res = await fetchLiveAQI(city);
-      setData(res.data);
+      setData(res);
     } catch (err) {
-      console.log(err);
+      setError("Could not fetch AQI. Try another city or try again later.");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -34,17 +44,9 @@ export default function Home() {
         </button>
       </div>
 
-      {data && (
-        <AQICard
-          city={data.city}
-          aqi={data.aqi}
-          pm25={data.pm25}
-          pm10={data.pm10}
-          no2={data.no2}
-          so2={data.so2}
-          o3={data.o3}
-        />
-      )}
+      {loading && <Loader />}
+      {error && <ErrorBox message={error} />}
+      {data && <AQICard {...data} />}
     </div>
   );
 }

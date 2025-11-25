@@ -1,4 +1,4 @@
-export default function AQICard({ city, aqi, pm25, pm10, no2, so2, o3 }) {
+export default function AQICard({ city, aqi, pm25, pm10, no2, so2, o3, co }) {
   const getColor = (aqi) => {
     if (aqi <= 50) return "bg-green-500";
     if (aqi <= 100) return "bg-yellow-400";
@@ -9,20 +9,23 @@ export default function AQICard({ city, aqi, pm25, pm10, no2, so2, o3 }) {
   };
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-xl border border-gray-100 w-full max-w-md">
+    <div className="bg-white shadow-lg p-6 rounded-xl border border-gray-100 w-full max-w-xl animate-fadeIn">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold">{city}</h2>
+        <h2 className="text-2xl font-semibold">{city}</h2>
         <div className={`text-white px-4 py-2 rounded-lg ${getColor(aqi)}`}>
           AQI: {aqi}
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mt-4 text-sm text-gray-700">
-        <p><span className="font-medium">PM2.5:</span> {pm25}</p>
-        <p><span className="font-medium">PM10:</span> {pm10}</p>
-        <p><span className="font-medium">NO₂:</span> {no2}</p>
-        <p><span className="font-medium">SO₂:</span> {so2}</p>
-        <p><span className="font-medium">O₃:</span> {o3}</p>
+        <p><b>PM2.5:</b> {pm25}</p>
+        <p><b>PM10:</b> {pm10}</p>
+
+        <p><b>NO₂:</b> {no2}</p>
+        <p><b>SO₂:</b> {so2}</p>
+
+        <p><b>O₃:</b> {o3}</p>
+        <p><b>CO:</b> {co}</p>
       </div>
     </div>
   );

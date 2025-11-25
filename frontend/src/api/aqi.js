@@ -1,13 +1,16 @@
-import { api } from "./client";
+import axios from "axios";
 
-export const fetchLiveAQI = (city) =>
-  api.get(`/aqi/live?city=${city}`);
+const API = axios.create({
+  baseURL: "http://localhost:5000/api",
+  timeout: 8000,
+});
 
-export const fetchHistory = (city, hours = 24) =>
-  api.get(`/aqi/history?city=${city}&hours=${hours}`);
-
-export const compareCities = (cities) =>
-  api.get(`/aqi/compare?cities=${cities.join(",")}`);
-
-
-
+export const fetchLiveAQI = async (city) => {
+  try {
+    const res = await API.get(`/aqi/live?city=${city}`);
+    return res.data;
+  } catch (error) {
+    console.log("Frontend API error:", error);
+    throw error;
+  }
+};
