@@ -5,6 +5,7 @@ const API = axios.create({
   timeout: 8000,
 });
 
+// live aqi
 export const fetchLiveAQI = async (city) => {
   try {
     const res = await API.get(`/aqi/live?city=${city}`);
@@ -13,4 +14,9 @@ export const fetchLiveAQI = async (city) => {
     console.log("Frontend API error:", error);
     throw error;
   }
+};
+
+// Analytics 
+export const fetchHourlyAQI = async () => {
+  return [];
 };

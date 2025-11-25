@@ -9,6 +9,8 @@ export default function Navbar() {
         <Link to="/explore" className="hover:text-blue-600">Explore</Link>
         <Link to="/compare" className="hover:text-blue-600">Compare</Link>
         <Link to="/info" className="hover:text-blue-600">AQI Info</Link>
+        <Link to="/analytics" className="hover:text-blue-600">Analytics</Link>
+
       </div>
     </nav>
   );

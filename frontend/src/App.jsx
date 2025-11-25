@@ -4,6 +4,9 @@ import Home from "./pages/Home";
 import Explore from "./pages/Explore.jsx";
 import Compare from "./pages/Compare.jsx"
 import Meta from "./pages/Meta.jsx"
+import Analytics from "./pages/Analytics";
+
+import City from "./pages/City";
 
 
 import Navbar from "./components/layout/Navbar";
@@ -16,7 +19,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-      
+      <Route path="/city/:cityName" element={<City />} />
+      <Route path="/analytics" element={<Analytics />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/meta" element={<Meta />} />/
@@ -26,3 +30,8 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+
+
+
+

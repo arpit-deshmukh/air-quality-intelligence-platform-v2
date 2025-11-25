@@ -3,10 +3,12 @@ import { fetchLiveAQI } from "../api/aqi";
 import { cities } from "../data/cities";
 import CityQuickCard from "../components/cards/CityQuickCard";
 import Loader from "../components/common/Loader";
+import { useNavigate } from "react-router-dom";
 
 export default function Explore() {
   const [cityData, setCityData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadCities();
@@ -19,7 +21,7 @@ export default function Explore() {
       try {
         const res = await fetchLiveAQI(c.name);
         results.push(res);
-      } catch (e) {
+      } catch {
         results.push({ city: c.name, aqi: null });
       }
     }
@@ -29,7 +31,7 @@ export default function Explore() {
   };
 
   const openCityDetails = (city) => {
-    window.location.href = `/city/${city}`;
+    navigate(`/city/${city}`);
   };
 
   return (
