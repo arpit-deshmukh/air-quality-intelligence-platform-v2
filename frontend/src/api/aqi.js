@@ -1,14 +1,15 @@
 import axios from "axios";
 
+// backend url
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://air-quality-intelligence-platform-v2.onrender.com/api",
   timeout: 8000,
 });
 
-// live aqi
+// live aqii
 export const fetchLiveAQI = async (city) => {
   try {
-    const res = await API.get(`/aqi/live?city=${city}`);
+    const res = await API.get(`/aqi/live?city=${encodeURIComponent(city)}`);
     return res.data;
   } catch (error) {
     console.log("Frontend API error:", error);
@@ -16,7 +17,7 @@ export const fetchLiveAQI = async (city) => {
   }
 };
 
-// Analytics 
+// analystics :to do 
 export const fetchHourlyAQI = async () => {
   return [];
 };
