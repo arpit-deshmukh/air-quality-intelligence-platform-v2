@@ -1,48 +1,45 @@
-import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  LineElement,
-  PointElement,
   CategoryScale,
   LinearScale,
+  PointElement,
+  LineElement,
   Tooltip,
   Legend
 } from "chart.js";
+import { Line } from "react-chartjs-2";
 
+// register
 ChartJS.register(
-  LineElement,
-  PointElement,
   CategoryScale,
   LinearScale,
+  PointElement,
+  LineElement,
   Tooltip,
   Legend
 );
 
-export default function LineChart({ labels, data, title }) {
-  return (
-    <div className="bg-white shadow p-4 rounded-xl">
-      <Line
-        data={{
-          labels,
-          datasets: [
-            {
-              label: title,
-              data,
-              borderColor: "rgb(37, 99, 235)",
-              borderWidth: 2,
-              pointRadius: 0,
-              tension: 0.3
-            }
-          ]
-        }}
-        options={{
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { ticks: { maxTicksLimit: 8 } }
-          }
-        }}
-      />
-    </div>
-  );
+export default function LineChart({ labels = [], values = [], color = "rgba(255,99,132,1)" }) {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "AQI Trend",
+        data: values,
+        borderColor: color,
+        backgroundColor: "rgba(255,99,132,0.2)",
+        fill: true,
+        tension: 0.3
+      }
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    }
+  };
+
+  return <Line data={data} options={options} redraw={true} />;
 }

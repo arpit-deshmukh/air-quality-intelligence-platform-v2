@@ -12,6 +12,9 @@ export default function Navbar() {
 
         
         <Link to="/compare" className="hover:text-blue-600">Compare</Link>
+        <Link to="/comparePage" className="hover:text-blue-600">ComparePage</Link>
+
+
         <Link to="/info" className="hover:text-blue-600">AQI Info</Link>
         <Link to="/analytics" className="hover:text-blue-600">Analytics</Link>
       <Link to="/aqi-info" className="hover:text-blue-600">AQI Info</Link>

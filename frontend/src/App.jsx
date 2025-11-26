@@ -5,6 +5,9 @@ import Explore from "./pages/Explore.jsx";
 import ExplorePage from "./pages/explore/ExplorePage.jsx";
 
 import Compare from "./pages/compare/Compare.jsx"
+import ComparePage from "./pages/compare/ComparePage.jsx"
+
+
 import Meta from "./pages/Meta.jsx"
 import Analytics from "./pages/Analytics";
 
@@ -44,6 +47,9 @@ export default function App() {
         {/* <Route path="/explore" element={<Explore />} /> */}
          <Route path="/explorePage" element={<ExplorePage />} />
         <Route path="/compare" element={<Compare />} />
+          <Route path="/comparePage" element={<ComparePage />} />
+
+
         <Route path="/aqi-info" element={<AQIInfo />} />
         <Route path="/meta" element={<Meta />} />/
         <Route path="/solutions" element={<Solutions />} />

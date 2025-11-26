@@ -2,7 +2,7 @@ import CitySelect from "./components/CitySelect";
 import AQIScoreBox from "./components/AQIScoreBox";
 import ComparisonCards from "./components/ComparisonCards";
 import PollutantBars from "./components/PollutantBars";
-import SuggestionBox from "./components/SuggestionBox";
+import SuggestionBox from "./components/SuggestionsBox";
 import ChartCompare from "./components/ChartCompare";
 
 export default function Compare() {
