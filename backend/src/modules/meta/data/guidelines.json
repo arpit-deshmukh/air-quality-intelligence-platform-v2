@@ -1,0 +1,16 @@
+{
+  "india_cpcb": [
+    { "range": "0-50", "category": "Good", "health": "Minimal impact" },
+    { "range": "51-100", "category": "Satisfactory", "health": "Minor breathing discomfort" },
+    { "range": "101-200", "category": "Moderate", "health": "Breathing discomfort to sensitive people" },
+    { "range": "201-300", "category": "Poor", "health": "Breathing discomfort to most people" },
+    { "range": "301-400", "category": "Very Poor", "health": "Respiratory illness on prolonged exposure" },
+    { "range": "401-500", "category": "Severe", "health": "Affects healthy people; serious health impact" }
+  ],
+  "who_limits": {
+    "pm25_annual": "5 µg/m³",
+    "pm10_annual": "15 µg/m³",
+    "pm25_24hr": "15 µg/m³",
+    "pm10_24hr": "45 µg/m³"
+  }
+}

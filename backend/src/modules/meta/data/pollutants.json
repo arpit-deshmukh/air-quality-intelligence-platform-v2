@@ -1,0 +1,34 @@
+{
+  "pm25": {
+    "name": "Particulate Matter 2.5",
+    "description": "Fine inhalable particles with diameter ≤ 2.5 microns. Major health risk.",
+    "sources": ["Vehicle exhaust", "Industrial emissions", "Burning waste"],
+    "healthImpact": "Penetrates deep into lungs; causes respiratory and cardiovascular diseases."
+  },
+  "pm10": {
+    "name": "Particulate Matter 10",
+    "description": "Coarse particles with diameter ≤ 10 microns.",
+    "sources": ["Dust", "Construction", "Road traffic"],
+    "healthImpact": "Causes throat irritation, breathing issues, allergies."
+  },
+  "no2": {
+    "name": "Nitrogen Dioxide",
+    "sources": ["Vehicles", "Power plants"],
+    "healthImpact": "Inflames airways; reduces lung immunity."
+  },
+  "o3": {
+    "name": "Ozone",
+    "sources": ["Sunlight reactions with NOx"],
+    "healthImpact": "Triggers asthma and reduces lung function."
+  },
+  "so2": {
+    "name": "Sulfur Dioxide",
+    "sources": ["Factories", "Coal burning"],
+    "healthImpact": "Irritates throat and lungs."
+  },
+  "co": {
+    "name": "Carbon Monoxide",
+    "sources": ["Incomplete combustion"],
+    "healthImpact": "Reduces oxygen supply in the body."
+  }
+}

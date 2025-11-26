@@ -1,0 +1,34 @@
+{
+  "beijing": {
+    "name": "Beijing Air Quality Action Plan",
+    "year": 2013,
+    "actions": [
+      "Coal-to-gas transition",
+      "Factory relocation outside city",
+      "Strict vehicle emission standards",
+      "Mass public transportation development"
+    ],
+    "impact": "PM2.5 reduced by over 35% in 5 years."
+  },
+  "delhi_grap": {
+    "name": "Delhi GRAP Plan",
+    "year": 2017,
+    "actions": [
+      "Odd-even traffic scheme",
+      "Construction bans during high pollution",
+      "Anti-smog guns",
+      "Crackdown on waste burning"
+    ],
+    "impact": "Seasonal impact but challenge remains due to external factors."
+  },
+  "los_angeles": {
+    "name": "LA Clean Air Plan",
+    "actions": [
+      "Catalytic converters",
+      "Smog checks",
+      "EV regulations",
+      "Strict industrial emissions monitoring"
+    ],
+    "impact": "Massive drop in ozone pollution over 20 years."
+  }
+}
