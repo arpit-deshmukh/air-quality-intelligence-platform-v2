@@ -44,14 +44,14 @@ Thumbs.db
 
 # ---- Local Data / Uploads ----
 uploads/
-data/
+# data/
 *.csv
 
 # Ignore only data-related JSON files, not config ones
 # Keeps: package.json, vite.config.js, eslint.config.js
 # Ignores: any JSON inside /data or /uploads folders
-data/**/*.json
-uploads/**/*.json
+# data/**/*.json
+# uploads/**/*.json
 
 # ---- Runtime Files ----
 *.pid
