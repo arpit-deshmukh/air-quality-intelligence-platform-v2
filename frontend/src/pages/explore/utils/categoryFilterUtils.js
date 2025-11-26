@@ -3,7 +3,7 @@ export const filterCitiesByCategory = (list, category) => {
     return list.filter((c) => c.country === "IN");
 
   if (category === "global")
-    return list.filter((c) => c.country !== "IN");
+    return list.filter((c) => c.country == "GLOBAL");
 
   if (category === "low")
     return [...list].sort((a, b) => (a.aqi || 9999) - (b.aqi || 9999));

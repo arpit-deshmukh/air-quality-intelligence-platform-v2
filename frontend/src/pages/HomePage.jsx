@@ -9,10 +9,10 @@ export default function HomePage() {
   return (
     <>
         <Home/>
-        <Compare/>
-        <Explore/>
-        <Analytics/>
         <AQIInfo/>
+        <Explore/>
+        
+        
 
     </>
   )

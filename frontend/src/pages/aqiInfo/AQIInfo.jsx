@@ -9,14 +9,12 @@ export default function AQIInfo() {
   ];
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      {/* Header */}
-      <h1 className="text-4xl font-bold mb-4">Air Quality Index (AQI) Guide</h1>
-      <p className="text-gray-600 mb-8 text-lg">
+    <div className="p-6 w-full">
+      <h1 className="text-4xl text-center font-bold mb-4">Air Quality Index (AQI) Guide</h1>
+      <p className="text-gray-600 mb-8 text-lg text-center">
         Understand what AQI means, how it affects your health, and how to stay safe.
       </p>
 
-      {/* Section 1 — What is AQI */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-3">What is AQI?</h2>
         <p className="text-gray-700 leading-relaxed">
@@ -25,7 +23,6 @@ export default function AQIInfo() {
         </p>
       </section>
 
-      {/* Section 2 — AQI Table */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">AQI Categories</h2>
 
@@ -44,10 +41,8 @@ export default function AQIInfo() {
         </div>
       </section>
 
-      {/* Section 3 — Health Impact */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-3">Health Impact</h2>
-
         <ul className="list-disc ml-6 text-gray-700 leading-relaxed">
           <li>Higher AQI increases risk of respiratory and heart issues.</li>
           <li>PM2.5 is the most dangerous pollutant as it enters bloodstream.</li>
@@ -57,7 +52,6 @@ export default function AQIInfo() {
         </ul>
       </section>
 
-      {/* Section 4 — Precautions */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-3">Precautionary Measures</h2>
 
@@ -69,5 +63,5 @@ export default function AQIInfo() {
         </div>
       </section>
     </div>
-  )
+  );
 }

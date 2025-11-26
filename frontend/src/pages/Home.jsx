@@ -4,6 +4,8 @@ import AQICard from "../components/cards/AQICard";
 import Loader from "../components/common/Loader";
 import ErrorBox from "../components/common/ErrorBox";
 
+import { cities } from "../data/cities"; 
+
 export default function Home() {
   const [city, setCity] = useState("Delhi");
   const [data, setData] = useState(null);
@@ -26,27 +28,45 @@ export default function Home() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Live AQI Dashboard</h1>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center py-4 bg-gray-100 ">
+      <div className="w-full max-w-xl text-center">
 
-      <div className="flex gap-3 mb-6">
-        <input
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="Enter city (e.g., Delhi)"
-          className="border px-4 py-2 rounded-lg w-60"
-        />
-        <button
-          onClick={getAQI}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
-        >
-          Get AQI
-        </button>
+        <h1 className="text-3xl font-bold mb-5">Live AQI Dashboard</h1>
+
+  {/* dropdown button */}
+        <div className="flex gap-3 justify-center mb-5">
+
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="border px-4 py-2 rounded-lg w-60 bg-white"
+          >
+            {cities.map((c) => (
+              <option key={c.name} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+
+          <button
+            onClick={getAQI}
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+          >
+            Get AQI
+          </button>
+        </div>
+{/* loader error result */}
+        {loading && <Loader />}
+
+        {error && <ErrorBox message={error} />}
+
+        {data && (
+          <div className="flex justify-center">
+            <AQICard {...data} />
+          </div>
+        )}
       </div>
-
-      {loading && <Loader />}
-      {error && <ErrorBox message={error} />}
-      {data && <AQICard {...data} />}
+      
     </div>
   );
 }

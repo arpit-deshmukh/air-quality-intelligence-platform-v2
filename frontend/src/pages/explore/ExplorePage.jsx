@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { fetchLiveAQI } from "../../api/aqi";
 import { cities } from "../../data/cities";
+
 import ExploreHeader from "./components/ExploreHeader";
 import SearchBox from "./components/SearchBox";
 import CategoryFilters from "./components/CategoryFilters";
 import CityTile from "./components/CityTile";
 import TileSkeleton from "./components/TileSkeleton";
+
 import { filterCitiesByCategory } from "./utils/categoryFilterUtils";
 
 export default function Explore() {
@@ -20,14 +22,31 @@ export default function Explore() {
 
   const loadCities = async () => {
     const results = [];
+
     for (const c of cities) {
       try {
         const res = await fetchLiveAQI(c.name);
-        results.push(res);
-      } catch {
-        results.push({ city: c.name, aqi: null });
+
+        
+        results.push({
+          city: c.name,
+            country: c.country, 
+          aqi: res?.aqi ?? null,
+          pm25: res?.pm25,
+          pm10: res?.pm10,
+          no2: res?.no2,
+          so2: res?.so2,
+          co: res?.co,
+          o3: res?.o3,
+        });
+      } catch (err) {
+        results.push({
+          city: c.name,
+          aqi: null,
+        });
       }
     }
+
     setCityData(results);
     setLoading(false);
   };
@@ -39,7 +58,9 @@ export default function Explore() {
   return (
     <div className="p-6">
       <ExploreHeader />
+
       <SearchBox value={query} onChange={setQuery} />
+
       <CategoryFilters active={active} setActive={setActive} />
 
       {loading ? (

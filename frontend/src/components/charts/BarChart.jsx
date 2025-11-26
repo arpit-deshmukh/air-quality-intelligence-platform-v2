@@ -8,7 +8,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-// register once
+// register 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 export default function BarChart({ labels = [], values = [] }) {

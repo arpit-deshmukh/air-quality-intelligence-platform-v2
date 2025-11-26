@@ -1,31 +1,40 @@
-import { useState } from "react";
-import { cities } from "../../../data/cities";
+export default function CitySelect({ city1, city2, setCity1, setCity2, cities }) {
 
-export default function CitySelect() {
-  const [cityA, setCityA] = useState("Delhi");
-  const [cityB, setCityB] = useState("Mumbai");
+  if (!cities || !Array.isArray(cities)) {
+    return <p className="text-red-500">Cities list not loaded...</p>;
+  }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4">
-      <select
-        value={cityA}
-        onChange={(e) => setCityA(e.target.value)}
-        className="border p-3 rounded-lg"
-      >
-        {cities.map((c) => (
-          <option key={c.name}>{c.name}</option>
-        ))}
-      </select>
+    <div>
+      <h2 className="text-xl font-semibold mb-4">Choose Cities</h2>
 
-      <select
-        value={cityB}
-        onChange={(e) => setCityB(e.target.value)}
-        className="border p-3 rounded-lg"
-      >
-        {cities.map((c) => (
-          <option key={c.name}>{c.name}</option>
-        ))}
-      </select>
+      <div className="grid grid-cols-2 gap-4">
+
+        <select
+          className="p-3 border rounded-lg"
+          value={city1}
+          onChange={(e) => setCity1(e.target.value)}
+        >
+          {cities.map((c) => (
+            <option key={c.name} value={c.name}>
+              {c.name}
+            </option>
+          ))}
+        </select>
+
+        <select
+          className="p-3 border rounded-lg"
+          value={city2}
+          onChange={(e) => setCity2(e.target.value)}
+        >
+          {cities.map((c) => (
+            <option key={c.name} value={c.name}>
+              {c.name}
+            </option>
+          ))}
+        </select>
+
+      </div>
     </div>
   );
 }

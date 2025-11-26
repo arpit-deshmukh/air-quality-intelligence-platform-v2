@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mt-16 bg-gray-100 border-t border-gray-300 py-8">
+    <footer className="mt-16 bg-gray-300 border-t border-gray-300 py-8">
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center gap-6">
 
         {/* Brand */}
@@ -24,7 +24,7 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Social Icons */}
+       {/* social icons */}
         <div className="flex gap-5 mt-2">
           {/* GitHub */}
           <a href="#" className="hover:opacity-70">
@@ -47,15 +47,14 @@ export default function Footer() {
             </svg>
           </a>
         </div>
-
-        {/* Aim Tagline */}
+{/* aim */}
         <div className="text-center mt-4">
           <p className="text-sm text-gray-700 font-medium">
             Our Aim: To empower people with air quality awareness and build meaningful solutions.
           </p>
         </div>
 
-        {/* Copyright */}
+{/* //copyright */}
         <div className="text-sm text-gray-500 mt-3">
           © {new Date().getFullYear()} AQI Intelligence
         </div>
