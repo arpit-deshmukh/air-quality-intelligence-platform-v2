@@ -1,8 +1,9 @@
 import React from 'react'
 import Home from './Home'
-import Compare from './Compare'
+import Compare from './compare/Compare'
 import Explore from './Explore'
 import Analytics from './Analytics'
+import AQIInfo from './aqiInfo/AQIInfo'
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
         <Compare/>
         <Explore/>
         <Analytics/>
+        <AQIInfo/>
 
     </>
   )
