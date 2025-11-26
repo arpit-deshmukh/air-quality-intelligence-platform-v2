@@ -1,4 +1,4 @@
-import { getOpenMeteoData } from "../../aqi/providers/openMeteoProvider.js";
+import { getOpenMeteoData } from "../../aqi/providers/tempFile.js";
 import { calculateAQI } from "../../aqi/utils/calculateAQI.js";
 
 export const getAqiByCoordsService = async (lat, lon) => {

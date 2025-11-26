@@ -1,5 +1,5 @@
 import { cities } from "../../../config/cities.js";
-import { getOpenMeteoData } from "../providers/openMeteoProvider.js";
+import { getOpenMeteoData } from "../providers/tempFile.js";
 import { calculateAQI } from "../utils/calculateAQI.js";
 import { getCache, setCache } from "../utils/cache.js";
 

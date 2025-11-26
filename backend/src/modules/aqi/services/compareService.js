@@ -1,5 +1,5 @@
 import { cities } from "../../../config/cities.js";
-import { getOpenMeteoData } from "../providers/openMeteoProvider.js";
+import { getOpenMeteoData } from "../providers/tempFile.js";
 import { calculateAQI } from "../utils/calculateAQI.js";
 
 export const compareCitiesService = async (cityNames) => {
