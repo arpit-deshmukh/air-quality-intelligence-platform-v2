@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage.jsx";
 import Explore from "./pages/Explore.jsx";
+import ExplorePage from "./pages/explore/ExplorePage.jsx";
+
 import Compare from "./pages/compare/Compare.jsx"
 import Meta from "./pages/Meta.jsx"
 import Analytics from "./pages/Analytics";
@@ -39,7 +41,8 @@ export default function App() {
 
       <Route path="/city/:cityName" element={<City />} />
       <Route path="/analytics" element={<Analytics />} />
-        <Route path="/explore" element={<Explore />} />
+        {/* <Route path="/explore" element={<Explore />} /> */}
+         <Route path="/explorePage" element={<ExplorePage />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/aqi-info" element={<AQIInfo />} />
         <Route path="/meta" element={<Meta />} />/
