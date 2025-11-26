@@ -1,5 +1,5 @@
 import { cities } from "../../../config/cities.js";
-import { getOpenMeteoData } from "../providers/tempFile.js";
+import { getOpenMeteoData } from "../providers/openMeteoProvider.js";
 
 export const getHourlyAqiService = async (cityName) => {
   const city = cities.find(
