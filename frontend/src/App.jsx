@@ -7,9 +7,9 @@ import ComparePage from "./pages/compare/ComparePage.jsx";
 import Meta from "./pages/Meta.jsx";
 import Analytics from "./pages/Analytics.jsx";
 
-import AQIInfo from "./pages/AQIInfo/AQIInfo.jsx";
+import AQIInfo from "./pages/aqiInfo/AQIInfo.jsx";
 import Research from "./pages/Research/ResearchPage.jsx";
-import Solutions from "./pages/Solutions/SolutionPage.jsx";
+import Solutions from "./pages/solutions/SolutionPage.jsx";
 
 import City from "./pages/City.jsx";
 
