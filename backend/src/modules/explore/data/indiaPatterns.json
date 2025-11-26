@@ -1,0 +1,16 @@
+{
+  "pm25_monthly_avg": [
+    { "month": "Jan", "value": 95 },
+    { "month": "Feb", "value": 88 },
+    { "month": "Mar", "value": 65 },
+    { "month": "Apr", "value": 52 },
+    { "month": "May", "value": 45 },
+    { "month": "Jun", "value": 40 },
+    { "month": "Jul", "value": 30 },
+    { "month": "Aug", "value": 35 },
+    { "month": "Sep", "value": 55 },
+    { "month": "Oct", "value": 90 },
+    { "month": "Nov", "value": 120 },
+    { "month": "Dec", "value": 140 }
+  ]
+}
