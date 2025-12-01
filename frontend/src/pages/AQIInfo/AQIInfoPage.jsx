@@ -1,7 +1,7 @@
-import InfoCard from "./AQIInfo/InfoCard";
-import VideoCard from "./AQIInfo/VideoCard";
-import AQIImageCard from "./AQIInfo/AQIImageCard";
-import AQIImageCard2 from "./AQIInfo/AQIImageCard2";
+import InfoCard from "./InfoCard";
+import VideoCard from "./VideoCard";
+import AQIImageCard from "./AQIImageCard";
+import AQIImageCard2 from "./AQIImageCard2";
 
 export default function AQIInfo() {
 

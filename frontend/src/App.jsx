@@ -7,7 +7,7 @@ import ComparePage from "./pages/compare/ComparePage.jsx";
 import Meta from "./pages/Meta.jsx";
 import Analytics from "./pages/Analytics.jsx";
 
-import AQIInfo from "./pages/AQIInfoPage.jsx";
+import AQIInfo from "./pages/AQIInfo/AQIInfoPage.jsx";
 import ResearchPage from "./pages/Research/ResearchPage.jsx";
 import SolutionsPage from "./pages/solutions/SolutionPage.jsx";
 
