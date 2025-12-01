@@ -9,6 +9,8 @@ export default function LiveAQIResult({ loading, error, data }) {
 
   return (
     <div className="flex justify-center mt-4">
+
+
       <AQICard {...data} />
     </div>
   );
