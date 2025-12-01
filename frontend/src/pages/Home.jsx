@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { fetchLiveAQI } from "../api/aqi";
-import AQICard from "../components/cards/AQICard";
-import Loader from "../components/common/Loader";
-import ErrorBox from "../components/common/ErrorBox";
-
-import { cities } from "../data/cities"; 
+import { cities } from "../data/cities";
+import LiveAQIResult from "./home-components/LiveAQIResult";
 
 export default function Home() {
   const [city, setCity] = useState("Delhi");
@@ -20,7 +17,7 @@ export default function Home() {
     try {
       const res = await fetchLiveAQI(city);
       setData(res);
-    } catch (err) {
+    } catch {
       setError("Could not fetch AQI. Try another city or try again later.");
     }
 
@@ -28,14 +25,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center py-4 bg-gray-100 ">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center py-4 bg-gray-100">
       <div className="w-full max-w-xl text-center">
 
         <h1 className="text-3xl font-bold mb-5">Live AQI Dashboard</h1>
 
-  {/* dropdown button */}
         <div className="flex gap-3 justify-center mb-5">
-
           <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -55,18 +50,9 @@ export default function Home() {
             Get AQI
           </button>
         </div>
-{/* loader error result */}
-        {loading && <Loader />}
 
-        {error && <ErrorBox message={error} />}
-
-        {data && (
-          <div className="flex justify-center">
-            <AQICard {...data} />
-          </div>
-        )}
+        <LiveAQIResult loading={loading} error={error} data={data} />
       </div>
-      
     </div>
   );
 }

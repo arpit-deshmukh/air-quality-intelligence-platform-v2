@@ -7,9 +7,9 @@ import ComparePage from "./pages/compare/ComparePage.jsx";
 import Meta from "./pages/Meta.jsx";
 import Analytics from "./pages/Analytics.jsx";
 
-import AQIInfo from "./pages/AQIInfo.jsx";
-import Research from "./pages/Research/ResearchPage.jsx";
-import Solutions from "./pages/solutions/SolutionPage.jsx";
+import AQIInfo from "./pages/AQIInfoPage.jsx";
+import ResearchPage from "./pages/Research/ResearchPage.jsx";
+import SolutionsPage from "./pages/solutions/SolutionPage.jsx";
 
 import City from "./pages/City.jsx";
 
@@ -31,8 +31,8 @@ export default function App() {
 
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/aqi-info" element={<AQIInfo />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/research" element={<ResearchPage />} />
+        <Route path="/solutions" element={<SolutionsPage />} />
         <Route path="/meta" element={<Meta />} />
       </Routes>
 

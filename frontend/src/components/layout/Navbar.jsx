@@ -9,13 +9,12 @@ export default function Navbar() {
 
       
       <div className="flex gap-6 ml-10">
-        <Link to="/explorePage" className="hover:text-blue-600">
-          Explore
+        <Link to="/" className="hover:text-blue-600">
+          Home
         </Link>
+       
 
-        <Link to="/comparePage" className="hover:text-blue-600">
-          Compare
-        </Link>
+        
 
         <Link to="/aqi-info" className="hover:text-blue-600">
           AQI Info
@@ -28,6 +27,14 @@ export default function Navbar() {
         <Link to="/solutions" className="hover:text-blue-600">
           Solutions
         </Link>
+
+         <Link to="/explorePage" className="hover:text-blue-600">
+          Explore
+        </Link>
+
+        {/* <Link to="/comparePage" className="hover:text-blue-600">
+          Compare
+        </Link> */}
       </div>
       <hr/>
     </nav>
