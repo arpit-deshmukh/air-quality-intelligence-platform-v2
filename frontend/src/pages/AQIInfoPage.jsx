@@ -1,5 +1,5 @@
-import InfoCard from "./aqiInfo/InfoCard";
-import VideoCard from "./aqiInfo/VideoCard";
+import InfoCard from "./AQIInfo/InfoCard";
+import VideoCard from "./AQIInfo/VideoCard";
 import AQIImageCard from "./AQIInfo/AQIImageCard";
 import AQIImageCard2 from "./AQIInfo/AQIImageCard2";
 
@@ -61,7 +61,7 @@ export default function AQIInfo() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InfoCard title="Stay Safe">
             <div className="space-y-2 text-gray-700">
-              <p>• Wear N95 mask when AQI > 200</p>
+              <p>• Wear N95 mask when AQI is above 200</p>
               <p>• Use indoor air purifiers</p>
               <p>• Avoid outdoor exercise in poor AQI</p>
               <p>• Keep windows closed during high AQI</p>
