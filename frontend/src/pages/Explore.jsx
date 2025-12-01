@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchLiveAQI } from "../api/aqi";
-import { cities } from "../data/cities";
+import { getExploreData } from "../api/explore";
 import CityQuickCard from "../components/cards/CityQuickCard";
 import Loader from "../components/common/Loader";
 import { useNavigate } from "react-router-dom";
@@ -15,23 +14,14 @@ export default function Explore() {
   }, []);
 
   const loadCities = async () => {
-    let results = [];
-
-    for (const c of cities) {
-      try {
-        const res = await fetchLiveAQI(c.name);
-        results.push(res);
-      } catch {
-        results.push({ city: c.name, aqi: null });
-      }
+    try {
+      const res = await getExploreData();
+      setCityData(res?.data || []);  // FIX
+    } catch (e) {
+      console.error(e);
+      setCityData([]);
     }
-
-    setCityData(results);
     setLoading(false);
-  };
-
-  const openCityDetails = (city) => {
-    navigate(`/city/${city}`);
   };
 
   return (
@@ -45,8 +35,8 @@ export default function Explore() {
           <CityQuickCard
             key={index}
             city={item.city}
-            aqi={item.aqi ?? "N/A"}
-            onClick={() => openCityDetails(item.city)}
+            aqi={item.aqi}
+            onClick={() => navigate(`/city/${item.city}`)}
           />
         ))}
       </div>

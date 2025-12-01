@@ -1,3 +1,7 @@
+import React, { useState } from "react";
+import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import FurtherReadingSolutions from "./FurtherReadingSolutions";
+
 const solutions = [
   {
     title: "Beijing Air Quality Action Plan (2013–2017)",
@@ -7,9 +11,11 @@ const solutions = [
       "Coal-to-gas transition",
       "Odd-even vehicle rule",
       "Industrial relocation",
-      "24x7 pollution monitoring grid"
+      "24x7 pollution monitoring grid",
     ],
-    link: "https://www.unep.org/news-and-stories/story/how-beijing-grew-cleaner"
+    video:
+      "/videos/solutions/beijing.mp4", 
+    link: "https://www.unep.org/news-and-stories/story/how-beijing-grew-cleaner",
   },
   {
     title: "London ULEZ (Ultra Low Emission Zone)",
@@ -19,9 +25,11 @@ const solutions = [
       "ULEZ zone charging",
       "Diesel ban for older vehicles",
       "Mass EV infrastructure",
-      "Strict vehicle emissions standards"
+      "Strict vehicle emissions standards",
     ],
-    link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone"
+    video:
+      "/videos/solutions/london.mp4", 
+    link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone",
   },
   {
     title: "Delhi Graded Response Action Plan (GRAP)",
@@ -31,9 +39,11 @@ const solutions = [
       "Construction ban in severe AQI",
       "Odd-even emergency rule",
       "Dust control & water sprinkling",
-      "Industry fuel transition norms"
+      "Industry fuel transition norms",
     ],
-    link: "https://cpcb.nic.in/grap/"
+    video:
+      "/videos/solutions/delhi.mp4",
+    link: "https://cpcb.nic.in/grap/",
   },
   {
     title: "Paris Car-Free Day & Cycling Push",
@@ -43,76 +53,108 @@ const solutions = [
       "City-wide cycling network",
       "Car-free Sundays",
       "Diesel ban",
-      "Urban green zones expansion"
+      "Urban green zones expansion",
     ],
-    link: "https://www.paris.fr/pages/paris-respire-247"
-  }
+    video:
+      "/videos/solutions/paris.mp4",
+    link: "https://www.paris.fr/pages/paris-respire-247",
+  },
 ];
 
 const roadmap = [
-  "Phase 1: Real-time AQI grid monitoring in all major cities",
-  "Phase 2: 100% transition to clean public transport (CNG, EV, hydrogen)",
-  "Phase 3: Heavy industries relocation outside city boundaries",
-  "Phase 4: Strict construction dust control laws",
-  "Phase 5: Massive city plantation and green buffer zones",
-  "Phase 6: ULEZ in all metro cities",
-  "Phase 7: Incentives for rooftop solar in all households"
+  "Real-time AQI grid monitoring in all major cities",
+  "100% transition to clean public transport (CNG, EV, hydrogen)",
+  "Heavy industries relocation outside city boundaries",
+  "Strict construction dust control laws",
+  "Massive city plantation and green buffer zones",
+  "ULEZ in all metro cities",
+  "Incentives for rooftop solar in all households",
 ];
 
 export default function Solutions() {
-  return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Air Quality Solutions & Global Models</h1>
-      <p className="text-gray-600 mb-8 text-lg">Learn how different cities cleaned their air and what we can adopt in India & globally.</p>
+  const [open, setOpen] = useState(null);
 
-      {/* Solutions Cards */}
+  const toggle = (idx) => setOpen(open === idx ? null : idx);
+
+  return (
+    <div className="p-6 max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold mb-2">Air Quality Solutions & Global Models</h1>
+      <p className="text-gray-600 mb-10 text-lg">
+        Learn how different cities cleaned their air and what we can adopt in India & globally.
+      </p>
+
+      {/* SOLUTIONS */}
       <div className="space-y-6">
         {solutions.map((s, idx) => (
-          <div key={idx} className="bg-white shadow-md p-6 rounded-xl border">
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-semibold">{s.title}</h2>
-              <span className="text-sm text-gray-500">{s.region}</span>
+          <div
+            key={idx}
+            className="bg-white shadow-lg border rounded-2xl p-6 transition-all hover:shadow-xl"
+          >
+            <div
+              onClick={() => toggle(idx)}
+              className="flex justify-between items-center cursor-pointer"
+            >
+              <div>
+                <h2 className="text-xl font-semibold">{s.title}</h2>
+                <p className="text-gray-500">{s.region}</p>
+              </div>
+
+              {open === idx ? (
+                <ChevronUp size={26} className="text-gray-600" />
+              ) : (
+                <ChevronDown size={26} className="text-gray-600" />
+              )}
             </div>
 
-            <p className="text-gray-700 mt-3">{s.desc}</p>
+            {/* COLLAPSE SECTION */}
+            {open === idx && (
+              <div className="mt-5 animate-fadeIn">
+                {/* Video */}
+                <video
+                  src={s.video}
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-52 object-cover rounded-xl shadow mb-4"
+                />
 
-            <ul className="list-disc ml-6 mt-3 text-gray-700">
-              {s.items.map((i, k) => (
-                <li key={k}>{i}</li>
-              ))}
-            </ul>
+                <p className="text-gray-700">{s.desc}</p>
 
-            <a
-              href={s.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-block text-blue-600 hover:underline"
-            >
-              Read more
-            </a>
+                <ul className="list-disc ml-6 mt-3 space-y-1 text-gray-800">
+                  {s.items.map((i, k) => (
+                    <li key={k}>{i}</li>
+                  ))}
+                </ul>
+
+                <a
+                  href={s.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center text-blue-600 hover:underline"
+                >
+                  Read more <ExternalLink size={16} className="ml-1" />
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Roadmap */}
-      <section className="mt-12 p-6 bg-gray-50 rounded-xl border">
-        <h2 className="text-2xl font-semibold mb-4">Proposed Air Quality Improvement Roadmap</h2>
-        <ul className="list-decimal ml-6 text-gray-700 space-y-2">
-          {roadmap.map((step, idx) => (
-            <li key={idx}>{step}</li>
+      {/* ROADMAP */}
+      <section className="mt-16 bg-gray-100 p-8 rounded-2xl border shadow">
+        <h2 className="text-2xl font-bold mb-6">Proposed Air Quality Roadmap</h2>
+
+        <div className="relative border-l border-gray-400">
+          {roadmap.map((step, i) => (
+            <div key={i} className="ml-6 mb-6">
+              <div className="w-3 h-3 bg-blue-500 rounded-full absolute -left-1.5 mt-1.5"></div>
+              <p className="text-gray-700 text-lg">{step}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      {/* Further Reading */}
-      <section className="mt-10 p-5 bg-white rounded-xl border shadow">
-        <h2 className="text-xl font-semibold mb-3">Further Reading</h2>
-        <ul className="list-disc ml-6 text-gray-700 space-y-2">
-          <li><a className="text-blue-600 hover:underline" href="https://www.unep.org" target="_blank">UNEP: Global Pollution Reports</a></li>
-          <li><a className="text-blue-600 hover:underline" href="https://www.ipcc.ch" target="_blank">IPCC Climate & Air Quality Findings</a></li>
-          <li><a className="text-blue-600 hover:underline" href="https://cpcb.nic.in" target="_blank">Central Pollution Control Board (India)</a></li>
-        </ul>
-      </section>
+      <FurtherReadingSolutions />
     </div>
   );
 }

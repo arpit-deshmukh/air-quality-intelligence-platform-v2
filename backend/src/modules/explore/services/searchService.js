@@ -1,4 +1,4 @@
-import { cities } from "../../../config/cities.js";
+import { cities } from "../data/cities.js";
 
 export const searchCityService = (query) => {
   const q = query.toLowerCase();

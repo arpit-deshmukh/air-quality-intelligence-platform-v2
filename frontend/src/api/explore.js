@@ -1,7 +1,6 @@
-import React from 'react'
+import axios from "axios";
 
-export default function explore() {
-  return (
-    <div>explore</div>
-  )
-}
+export const getExploreData = async () => {
+  const res = await axios.get("/api/explore");
+  return res.data;
+};

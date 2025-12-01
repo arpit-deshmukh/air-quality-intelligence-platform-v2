@@ -1,7 +1,7 @@
-import { cities } from "../../../config/cities.js";
+import { cities } from "../data/cities.js";
 import { getOpenMeteoData } from "../providers/openMeteoProvider.js";
 import { calculateAQI } from "../utils/calculateAQI.js";
-import { getCache, setCache } from "../utils/cache.js";
+import { getCache, setCache } from "../../../utils/cache.js";
 
 export const getLiveAqiService = async (cityName) => {
     //checking cache
@@ -15,7 +15,7 @@ export const getLiveAqiService = async (cityName) => {
 
     if (!city) return null;
 
-  //fetching data 
+    //fetching data 
     const data = await getOpenMeteoData(city.lat, city.lon);
     if (!data) return null;
 

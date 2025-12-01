@@ -1,7 +1,8 @@
 import AQIRecord from "../models/AQIRecord.js";
-import { cities } from "../../../config/cities.js";
+import { cities } from "../data/cities.js";
 import { getOpenMeteoData } from "../providers/openMeteoProvider.js";
 import { calculateAQI } from "../utils/calculateAQI.js";
+
 
 export const saveHourlyAqi = async () => {
     for (const c of cities) {

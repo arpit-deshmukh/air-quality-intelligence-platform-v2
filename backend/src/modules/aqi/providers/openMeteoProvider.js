@@ -1,33 +1,52 @@
-import { openMeteoClient } from "../../../config/apiClients.js";
+import axios from "axios";
 
-export const getOpenMeteoData = async (lat, lon) => {
+export const fetchCityAQI = async (city) => {
+  const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${city.lat}&longitude=${city.lon}&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone`;
+
   try {
-    const url =
-      `/air-quality?latitude=${lat}&longitude=${lon}` +
-      `&hourly=pm2_5,pm10,ozone,nitrogen_dioxide,sulphur_dioxide,carbon_monoxide` +
-      `&timezone=auto&forecast_hours=1`;
+    const res = await axios.get(url);
+    const data = res.data;
 
-    const res = await openMeteoClient.get(url);
-
-    if (!res.data || !res.data.hourly) return null;
-
-    const h = res.data.hourly;
-
-    if (!h.pm2_5 || h.pm2_5.length === 0) return null;
-
-    const last = h.time.length - 1;
+    const i = data.hourly.time.length - 1;
 
     return {
-      pm25: h.pm2_5[last] ?? null,
-      pm10: h.pm10?.[last] ?? null,
-      no2: h.nitrogen_dioxide?.[last] ?? null,
-      so2: h.sulphur_dioxide?.[last] ?? null,
-      o3: h.ozone?.[last] ?? null,
-      co: h.carbon_monoxide?.[last] ?? null
+      city: city.name,
+      pm25: data.hourly.pm2_5[i] ?? 0,
+      pm10: data.hourly.pm10[i] ?? 0,
+      no2: data.hourly.nitrogen_dioxide[i] ?? 0,
+      so2: data.hourly.sulphur_dioxide[i] ?? 0,
+      o3: data.hourly.ozone[i] ?? 0,
+      co: data.hourly.carbon_monoxide[i] ?? 0,
+      aqi: Math.round(
+        (data.hourly.pm2_5[i] + data.hourly.pm10[i] + data.hourly.ozone[i]) / 3
+      ),
+      source: "open-meteo"
     };
 
   } catch (err) {
-    console.error("Open-Meteo fetch error:", err);
+    console.error(`API Error for ${city.name}`, err.message);
+    return null;
+  }
+};
+
+export const getOpenMeteoData = async (lat, lon) => {
+  const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone`;
+
+  try {
+    const res = await axios.get(url);
+    const data = res.data;
+    const i = data.hourly.time.length - 1;
+
+    return {
+      pm25: data.hourly.pm2_5[i] ?? 0,
+      pm10: data.hourly.pm10[i] ?? 0,
+      no2: data.hourly.nitrogen_dioxide[i] ?? 0,
+      so2: data.hourly.sulphur_dioxide[i] ?? 0,
+      o3: data.hourly.ozone[i] ?? 0,
+      co: data.hourly.carbon_monoxide[i] ?? 0,
+    };
+  } catch (err) {
+    console.error(`API Error for ${lat}, ${lon}`, err.message);
     return null;
   }
 };

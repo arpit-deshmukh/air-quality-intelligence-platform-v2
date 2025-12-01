@@ -3,7 +3,7 @@ import Home from './Home'
 import Compare from './compare/Compare'
 import Explore from './Explore'
 import Analytics from './Analytics'
-import AQIInfo from './AQIInfo/AQIInfo'
+import AQIInfo from './AQIInfo'
 
 export default function HomePage() {
   return (
