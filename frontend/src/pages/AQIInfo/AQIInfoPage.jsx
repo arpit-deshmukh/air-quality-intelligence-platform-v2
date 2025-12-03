@@ -8,7 +8,7 @@ export default function AQIInfo() {
   return (
     <div className="p-6 max-w-6xl mx-auto">
 
-      <h1 className="text-4xl font-bold text-center mb-6">Air Quality Index (AQI) Guide</h1>
+      <h1 className="text-4xl font-bold text-blue-900  text-center mb-6">Air Quality Index (AQI) Guide</h1>
       <p className="text-gray-600 text-center mb-10">
         A complete breakdown of AQI, its impact, and how to protect yourself.
       </p>

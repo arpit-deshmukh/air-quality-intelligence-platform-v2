@@ -4,9 +4,10 @@ import MailIcon from "@mui/icons-material/Mail";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 bg-gray-300 border-t border-gray-300 py-8">
+    <footer className="mt-16 bg-gray-400 border-t border-gray-300 py-8">
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center gap-6">
-        {/* Brand */}
+      
+      {/* brand */}
         <div className="text-center">
           <h2 className="text-xl font-semibold text-gray-800">
             AQI Intelligence
@@ -18,14 +19,15 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex gap-6 text-sm">
-          <a href="/explore" className="text-gray-700 hover:text-black">
-            Explore
-          </a>
-          <a href="/compare" className="text-gray-700 hover:text-black">
-            Compare
+         
+          <a href="/researchPage" className="text-gray-700 hover:text-black">
+            Research
           </a>
           <a href="/aqi-info" className="text-gray-700 hover:text-black">
             AQI Info
+          </a>
+           <a href="/solutionsPage" className="text-gray-700 hover:text-black">
+            Solutions
           </a>
         </div>
 
@@ -36,7 +38,7 @@ export default function Footer() {
         <div className="flex gap-5 mt-2">
           {/* GitHub */}
           <a
-            href="https://github.com/arpit-deshmukh" // <-- replace here
+            href="https://github.com/arpit-deshmukh" // 
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-70"

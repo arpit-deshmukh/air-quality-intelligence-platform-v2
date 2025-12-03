@@ -25,10 +25,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center py-4 bg-gray-100">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center py-4 ">
       <div className="w-full max-w-xl text-center">
 
-        <h1 className="text-3xl font-bold mb-5">Live AQI Dashboard</h1>
+        <h1 className="text-3xl text-blue-900 font-bold mb-5">Live AQI Dashboard</h1>
 
         <div className="flex gap-3 justify-center mb-5">
           <select

@@ -12,8 +12,7 @@ const solutions = [
             "Industrial relocation",
             "24x7 pollution monitoring grid",
         ],
-        video:
-            "/videos/solutions/beijing.mp4",
+        video: "/videos/solutions/beijing.mp4",
         link: "https://www.unep.org/news-and-stories/story/how-beijing-grew-cleaner",
     },
     {
@@ -26,50 +25,50 @@ const solutions = [
             "Mass EV infrastructure",
             "Strict vehicle emissions standards",
         ],
-        video:
-            "/videos/solutions/london.mp4",
+        video: "/videos/solutions/london.mp4",
         link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone",
     },
     {
         title: "Delhi Graded Response Action Plan (GRAP)",
         region: "India",
-        desc: "A tiered policy system that automatically enforces restrictions like construction bans, traffic control, and generators ban when pollution levels rise.",
+        desc: "Tiered policy system enforcing construction bans, traffic control, and generator ban when pollution spikes.",
         items: [
             "Construction ban in severe AQI",
             "Odd-even emergency rule",
-            "Dust control & water sprinkling",
+            "Dust control & sprinkling",
             "Industry fuel transition norms",
         ],
-        video:
-            "/videos/solutions/delhi.mp4",
+        video: "/videos/solutions/delhi.mp4",
         link: "https://cpcb.nic.in/grap/",
     },
     {
         title: "Paris Car-Free Day & Cycling Push",
         region: "France",
-        desc: "Paris aggressively pushed cycling lanes, car-free zones, and banned diesel cars. PM2.5 reduced significantly.",
+        desc: "Paris pushed cycling lanes, car-free zones, and banned diesel cars. PM2.5 reduced significantly.",
         items: [
-            "City-wide cycling network",
+            "Cycling network expansion",
             "Car-free Sundays",
             "Diesel ban",
-            "Urban green zones expansion",
+            "Urban green zones",
         ],
-        video:
-            "/videos/solutions/paris.mp4",
+        video: "/videos/solutions/paris.mp4",
         link: "https://www.paris.fr/pages/paris-respire-247",
     },
 ];
 
 export default function Solutions() {
-    const [open, setOpen] = useState(null);
+    const [open, setOpen] = useState(0); // FIRST CARD open by default
 
     const toggle = (idx) => setOpen(open === idx ? null : idx);
 
     return (
         <div className="p-6 max-w-6xl mx-auto">
-            <h1 className="text-3xl text-blue-900 font-bold mb-2">Air Quality Solutions & Global Models</h1>
+            <h1 className="text-3xl text-blue-900 font-bold mb-2">
+                Air Quality Solutions & Global Models
+            </h1>
+
             <p className="text-gray-600 mb-10 text-lg">
-                Learn how different cities cleaned their air and what we can adopt in India & globally.
+                Learn how different cities cleaned their air and what we can adopt globally.
             </p>
 
             <div className="space-y-6">

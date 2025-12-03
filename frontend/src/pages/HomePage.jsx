@@ -13,10 +13,12 @@ export default function HomePage() {
   return (
     <>
       <Home />
+      <br />
+      <br />
+      <br />
       <AQIInfo />
       <Explore />
-      <Research />
-      <Solutions />
+      
 
 
 

@@ -19,24 +19,29 @@ import Footer from "./components/layout/Footer.jsx";
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <div className="fog-bg">
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route path="/explorePage" element={<ExplorePage />} />
-        <Route path="/comparePage" element={<ComparePage />} />
+          <Route path="/explorePage" element={<ExplorePage />} />
+          <Route path="/comparePage" element={<ComparePage />} />
 
-        <Route path="/city/:cityName" element={<City />} />
+          <Route path="/city/:cityName" element={<City />} />
 
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/aqi-info" element={<AQIInfoPage />} />
-        <Route path="/research" element={<ResearchPage />} />
-        <Route path="/solutions" element={<SolutionsPage />} />
-        <Route path="/meta" element={<Meta />} />
-      </Routes>
+          <Route path="/analyticsPage" element={<Analytics />} />
+          <Route path="/aqi-info" element={<AQIInfoPage />} />
+          <Route path="/researchPage" element={<ResearchPage />} />
+          <Route path="/solutionsPage" element={<SolutionsPage />} />
+          <Route path="/meta" element={<Meta />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+
+      </div>
+
+
     </BrowserRouter>
   );
 }
