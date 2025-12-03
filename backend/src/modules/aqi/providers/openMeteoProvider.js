@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 
 export const fetchCityAQI = async (city) => {
   const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${city.lat}&longitude=${city.lon}&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone`;
@@ -29,7 +29,10 @@ export const fetchCityAQI = async (city) => {
   }
 };
 
-export const getOpenMeteoData = async (lat, lon) => {
+import axios from "axios";
+
+// Main function used across backend
+export async function getOpenMeteoData(lat, lon) {
   const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone`;
 
   try {
@@ -46,7 +49,7 @@ export const getOpenMeteoData = async (lat, lon) => {
       co: data.hourly.carbon_monoxide[i] ?? 0,
     };
   } catch (err) {
-    console.error(`API Error for ${lat}, ${lon}`, err.message);
+    console.error("Open-Meteo Error:", err.message);
     return null;
   }
-};
+}

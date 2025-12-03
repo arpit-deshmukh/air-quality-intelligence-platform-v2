@@ -1,9 +1,16 @@
 import axios from "axios";
 
-// backend url
+// // backend url
+// const API = axios.create({
+//   baseURL: "https://air-quality-intelligence-platform-v2.onrender.com/api",
+//   timeout: 8000,
+// });
+
 const API = axios.create({
-  baseURL: "https://air-quality-intelligence-platform-v2.onrender.com/api",
-  timeout: 8000,
+  baseURL: import.meta.env.DEV
+    ? "http://localhost:5000/api"
+    : "https://air-quality-intelligence-platform-v2.onrender.com/api",
+  timeout: 15000, 
 });
 
 // live aqii
