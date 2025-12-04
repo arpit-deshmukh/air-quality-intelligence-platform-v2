@@ -14,7 +14,7 @@ const researchList = [
     source: "Research Journal of Environmental Sciences",
     summary:
       "A decade-long study analyzing seasonal patterns, pollution spikes, and emission sources across major Indian cities.",
-    url: "https://example.com/indian-air-quality-trends-2010-2024",
+    url: "https://www.mdpi.com/2073-4433/16/5/534",
     image: "/research-cards/r2.png"
   },
   {
@@ -30,7 +30,7 @@ const researchList = [
     source: "Environmental Pollution Journal",
     summary:
       "Correlation model showing how traffic density and industrial clusters directly influence NO₂ & SO₂ concentrations.",
-    url: "https://example.com/traffic-industrial-emissions-study",
+    url: "https://www.researchgate.net/publication/284738495_Correlations_between_noise_level_and_pollutants_concentration_in_order_to_assess_the_level_of_air_pollution_induced_by_heavy_traffic",
     image: "/research-cards/r3.png"
   }
 ];
@@ -70,7 +70,7 @@ export default function Research() {
               rel="noopener noreferrer"
               className="text-blue-600 mt-3 inline-block hover:underline font-medium"
             >
-              Read full paper →
+              Read more →
             </a>
           </div>
         ))}

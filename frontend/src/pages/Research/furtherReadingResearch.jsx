@@ -1,24 +1,25 @@
 import { FiExternalLink } from "react-icons/fi";
 
 export default function FurtherReading() {
-  const resources = [
-    {
-      name: "WHO — Air Pollution and Health",
-      url: "https://www.who.int/airpollution",
-    },
-    {
-      name: "US EPA — Particulate Matter (PM) Pollution",
-      url: "https://www.epa.gov/pm-pollution",
-    },
-    {
-      name: "AQICN — Real-time Global AQ Maps",
-      url: "https://aqicn.org",
-    },
-    {
-      name: "OpenAQ — Open Air Quality Data Platform",
-      url: "https://openaq.org",
-    },
-  ];
+const resources = [
+  {
+    name: "WHO — Air Pollution and Health",
+    url: "https://www.who.int/health-topics/air-pollution",
+  },
+  {
+    name: "US EPA — Particulate Matter (PM) Pollution",
+    url: "https://www.epa.gov/pm-pollution",
+  },
+  {
+    name: "AQICN — Real-time Global AQ Maps",
+    url: "https://aqicn.org/map/world/",
+  },
+  {
+    name: "OpenAQ — Open Air Quality Data Platform",
+    url: "https://openaq.org",
+  },
+];
+
 
   return (
     <section className="mt-12 card fade-in">

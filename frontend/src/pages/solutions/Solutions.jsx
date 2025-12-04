@@ -1,6 +1,120 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 
+// const solutions = [
+//     {
+//         title: "Beijing Air Quality Action Plan (2013–2017)",
+//         region: "China",
+//         desc: "Beijing implemented strict emission controls, relocated factories, restricted vehicles, and massively invested in renewable energy. PM2.5 reduced by 35% in 4 years.",
+//         items: [
+//             "Coal-to-gas transition",
+//             "Odd-even vehicle rule",
+//             "Industrial relocation",
+//             "24x7 pollution monitoring grid",
+//         ],
+//         video: "/videos/solutions/beijing.mp4",
+//         link: "https://www.unep.org/news-and-stories/story/how-beijing-grew-cleaner",
+//     },
+//     {
+//         title: "London ULEZ (Ultra Low Emission Zone)",
+//         region: "UK",
+//         desc: "London introduced ULEZ in 2019 where polluting vehicles pay a heavy fee. NO2 reduced by 44% in first year.",
+//         items: [
+//             "ULEZ zone charging",
+//             "Diesel ban for older vehicles",
+//             "Mass EV infrastructure",
+//             "Strict vehicle emissions standards",
+//         ],
+//         video: "/videos/solutions/london.mp4",
+//         link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone",
+//     },
+//     {
+//         title: "Delhi Graded Response Action Plan (GRAP)",
+//         region: "India",
+//         desc: "Tiered policy system enforcing construction bans, traffic control, and generator ban when pollution spikes.",
+//         items: [
+//             "Construction ban in severe AQI",
+//             "Odd-even emergency rule",
+//             "Dust control & sprinkling",
+//             "Industry fuel transition norms",
+//         ],
+//         video: "/videos/solutions/delhi.mp4",
+//         link: "https://cpcb.nic.in/grap/",
+//     },
+//     {
+//         title: "Paris Car-Free Day & Cycling Push",
+//         region: "France",
+//         desc: "Paris pushed cycling lanes, car-free zones, and banned diesel cars. PM2.5 reduced significantly.",
+//         items: [
+//             "Cycling network expansion",
+//             "Car-free Sundays",
+//             "Diesel ban",
+//             "Urban green zones",
+//         ],
+//         video: "/videos/solutions/paris.mp4",
+//         link: "https://www.paris.fr/pages/paris-respire-247",
+//     },
+// ];
+
+// const solutions = [
+//     {
+//         title: "Beijing Air Quality Action Plan (2013–2017)",
+//         region: "China",
+//         desc: "Beijing implemented strict emission controls, relocated factories, restricted vehicles, and massively invested in renewable energy. PM2.5 reduced by 35% in 4 years.",
+//         items: [
+//             "Coal-to-gas transition",
+//             "Odd-even vehicle rule",
+//             "Industrial relocation",
+//             "24x7 pollution monitoring grid",
+//         ],
+//         video: "/videos/solutions/beijing.mp4",
+//         link: "https://www.unep.org/news-and-stories/story/how-beijing-grew-cleaner-air",
+        
+//     },
+//     {
+//         title: "London ULEZ (Ultra Low Emission Zone)",
+//         region: "UK",
+//         desc: "London introduced ULEZ in 2019 where polluting vehicles pay a heavy fee. NO2 reduced by 44% in first year.",
+//         items: [
+//             "ULEZ zone charging",
+//             "Diesel ban for older vehicles",
+//             "Mass EV infrastructure",
+//             "Strict vehicle emissions standards",
+//         ],
+//         video: "/videos/solutions/london.mp4",
+//         link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone",
+      
+//     },
+//     {
+//         title: "Delhi Graded Response Action Plan (GRAP)",
+//         region: "India",
+//         desc: "Tiered policy system enforcing construction bans, traffic control, and generator ban when pollution spikes.",
+//         items: [
+//             "Construction ban in severe AQI",
+//             "Odd-even emergency rule",
+//             "Dust control & sprinkling",
+//             "Industry fuel transition norms",
+//         ],
+//         video: "/videos/solutions/delhi.mp4",
+//         link: "https://cpcb.nic.in/grap/",
+       
+//     },
+//     {
+//         title: "Paris Car-Free Day & Cycling Push",
+//         region: "France",
+//         desc: "Paris pushed cycling lanes, car-free zones, and banned diesel cars. PM2.5 reduced significantly.",
+//         items: [
+//             "Cycling network expansion",
+//             "Car-free Sundays",
+//             "Diesel ban",
+//             "Urban green zones",
+//         ],
+//         video: "/videos/solutions/paris.mp4",
+//         link: "https://www.paris.fr/pages/paris-respire-247",
+       
+//     },
+// ];
+
 const solutions = [
     {
         title: "Beijing Air Quality Action Plan (2013–2017)",
@@ -13,7 +127,7 @@ const solutions = [
             "24x7 pollution monitoring grid",
         ],
         video: "/videos/solutions/beijing.mp4",
-        link: "https://www.unep.org/news-and-stories/story/how-beijing-grew-cleaner",
+        link: "https://www.unep.org/resources/report/review-20-years-air-pollution-control-beijing"
     },
     {
         title: "London ULEZ (Ultra Low Emission Zone)",
@@ -26,7 +140,7 @@ const solutions = [
             "Strict vehicle emissions standards",
         ],
         video: "/videos/solutions/london.mp4",
-        link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone",
+        link: "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone"
     },
     {
         title: "Delhi Graded Response Action Plan (GRAP)",
@@ -39,7 +153,7 @@ const solutions = [
             "Industry fuel transition norms",
         ],
         video: "/videos/solutions/delhi.mp4",
-        link: "https://cpcb.nic.in/grap/",
+        link: "https://cpcb.nic.in/graded-response-action-plan-for-delhi-ncr/"
     },
     {
         title: "Paris Car-Free Day & Cycling Push",
@@ -52,7 +166,7 @@ const solutions = [
             "Urban green zones",
         ],
         video: "/videos/solutions/paris.mp4",
-        link: "https://www.paris.fr/pages/paris-respire-247",
+        link: "https://www.paris.fr/pages/paris-respire-2122"
     },
 ];
 
