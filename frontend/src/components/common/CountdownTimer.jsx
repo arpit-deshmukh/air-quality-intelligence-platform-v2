@@ -6,8 +6,7 @@ export default function CountdownTimer({ seconds = 15, onComplete }) {
   useEffect(() => {
     if (timeLeft === 0) {
       onComplete?.();   
-      setTimeLeft(seconds); // restart timer
-      return;
+      return;          
     }
 
     const interval = setInterval(() => {
@@ -15,11 +14,11 @@ export default function CountdownTimer({ seconds = 15, onComplete }) {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [timeLeft, seconds, onComplete]);
+  }, [timeLeft, onComplete]);
 
   return (
     <div className="text-sm mt-2 text-gray-600">
-      🔄 Refreshing data in: <span className="font-semibold">{timeLeft}s</span>
+       fetching AQI data: <span className="font-semibold">{timeLeft}s</span>
     </div>
   );
 }

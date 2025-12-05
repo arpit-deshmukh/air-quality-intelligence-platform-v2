@@ -11,7 +11,9 @@ export default function CityQuickCard({ city, aqi, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer bg-white shadow-md p-4 rounded-xl border hover:shadow-lg transition"
+      className="cursor-pointer bg-white shadow-md p-4 rounded-xl border hover:shadow-lg transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer"
     >
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold">{city}</h2>

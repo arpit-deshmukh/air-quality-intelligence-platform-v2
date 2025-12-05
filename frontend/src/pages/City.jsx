@@ -132,7 +132,9 @@ export default function City() {
       <h1 className="text-3xl font-bold mb-4">{cityName} AQI Details</h1>
 
       {/* aqi card */}
-      <div className="bg-white p-6 rounded-xl shadow mb-6">
+      <div className="bg-white p-6 rounded-xl shadow mb-6 transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer">
         <h2 className="text-xl font-semibold mb-3">Current AQI</h2>
         <div className="text-5xl font-bold mb-4">{data.aqi ?? "N/A"}</div>
 
@@ -199,7 +201,9 @@ export default function City() {
             const info = pollutantInfo[name];
 
             return (
-              <div key={name} className="p-4 border rounded-lg bg-gray-50">
+              <div key={name} className="p-4 border rounded-lg bg-gray-50 transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer">
                 <div className="flex justify-between mb-2">
                   <p className="text-lg font-semibold">{name}</p>
                   <p className="text-md font-bold">{value ?? "N/A"}</p>

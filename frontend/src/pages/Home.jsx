@@ -2,6 +2,7 @@ import { useState } from "react";
 import { fetchLiveAQI } from "../api/aqi";
 import { cities } from "../data/cities";
 import LiveAQIResult from "./home-components/LiveAQIResult";
+import PollutantInfoGrid from "./home-components/PollutantInfoGrid";
 
 export default function Home() {
   const [city, setCity] = useState("Delhi");
@@ -52,6 +53,7 @@ export default function Home() {
         </div>
 
         <LiveAQIResult loading={loading} error={error} data={data} />
+     
       </div>
     </div>
   );

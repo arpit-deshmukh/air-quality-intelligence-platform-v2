@@ -50,9 +50,11 @@ export default function Research() {
         {researchList.map((item, idx) => (
           <div
             key={idx}
-            className="card fade-in border-l-4 border-blue-500 rounded-lg p-6 bg-white shadow-sm"
+            className="card fade-in border-l-4 border-blue-500 rounded-lg p-6 bg-white shadow-sm transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer"
           >
-            <div className="w-full h-40 mb-4 overflow-hidden rounded-md">
+            <div className="w-full h-40 mb-4 overflow-hidden rounded-md ">
               <img
                 src={item.image}
                 alt={item.title}

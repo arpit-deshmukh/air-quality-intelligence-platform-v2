@@ -189,7 +189,9 @@ export default function Solutions() {
                 {solutions.map((s, idx) => (
                     <div
                         key={idx}
-                        className="bg-white shadow-lg border rounded-2xl p-6 transition-all hover:shadow-xl"
+                        className="bg-white shadow-lg border rounded-2xl p-6 transition-all hover:shadow-xl transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer"
                     >
                         <div
                             onClick={() => toggle(idx)}

@@ -1,7 +1,9 @@
 export default function FurtherReadingSolutions() {
     return (
        
-      <section className="mt-16 p-6 bg-white rounded-xl border shadow">
+      <section className="mt-16 p-6 bg-white rounded-xl border shadow transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer">
         <h2 className="text-xl font-semibold mb-3">Further Reading</h2>
         <ul className="list-disc ml-6 text-gray-700 space-y-2">
           <li>

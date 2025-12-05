@@ -22,7 +22,9 @@ const resources = [
 
 
   return (
-    <section className="mt-12 card fade-in">
+    <section className="mt-12 card fade-in transition-all duration-200 ease-out
+        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
+        cursor-pointer" >
       <h2 className="text-2xl font-semibold text-blue-900 mb-6">
         Further Reading & Resources
       </h2>

@@ -7,6 +7,7 @@ import SearchBox from "./components/SearchBox";
 import CategoryFilters from "./components/CategoryFilters";
 import CityTile from "./components/CityTile";
 import TileSkeleton from "./components/TileSkeleton";
+import CountdownTimer from "../../components/common/CountdownTimer";
 
 import { filterCitiesByCategory } from "./utils/categoryFilterUtils";
 // import CountdownTimer from "../../components/common/CountdownTimer";
@@ -62,6 +63,8 @@ export default function Explore() {
       <ExploreHeader />
 
       <SearchBox value={query} onChange={setQuery} />
+      
+      <CountdownTimer />
 
       <CategoryFilters active={active} setActive={setActive} />
 
