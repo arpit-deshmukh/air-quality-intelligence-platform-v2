@@ -26,16 +26,27 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center py-4 ">
-      <div className="w-full max-w-xl text-center">
+    <div className="min-h-[80vh] page-gradient">
+      <div className="max-w-5xl mx-auto px-6 py-16 text-center anim-fade">
 
-        <h1 className="text-3xl text-blue-900 font-bold mb-5">Live AQI Dashboard</h1>
+        <h1 className="text-4xl font-semibold text-blue-900 mb-3">
+          Live AQI Dashboard
+        </h1>
 
-        <div className="flex gap-3 justify-center mb-5">
+        <p className="text-gray-600 max-w-2xl mx-auto mb-10">
+          Check real-time air quality data and understand the pollutants
+          affecting your city.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="border px-4 py-2 rounded-lg w-60 bg-white"
+            className="
+              w-64 rounded-lg border border-gray-300 bg-white
+              px-4 py-2 text-gray-800
+              focus:outline-none focus:ring-2 focus:ring-blue-500
+            "
           >
             {cities.map((c) => (
               <option key={c.name} value={c.name}>
@@ -46,14 +57,22 @@ export default function Home() {
 
           <button
             onClick={getAQI}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+            className="
+              rounded-lg bg-blue-600 px-6 py-2 text-white font-medium
+              transition-all duration-200
+              hover:bg-blue-700 active:scale-95
+            "
           >
             Get AQI
           </button>
         </div>
 
         <LiveAQIResult loading={loading} error={error} data={data} />
-     
+
+        <div className="mt-20">
+          <PollutantInfoGrid />
+        </div>
+
       </div>
     </div>
   );

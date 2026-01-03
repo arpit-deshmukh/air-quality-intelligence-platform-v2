@@ -1,30 +1,55 @@
+import { FiExternalLink } from "react-icons/fi";
+
 export default function FurtherReadingSolutions() {
-    return (
-       
-      <section className="mt-16 p-6 bg-white rounded-xl border shadow transition-all duration-200 ease-out
-        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
-        cursor-pointer">
-        <h2 className="text-xl font-semibold mb-3">Further Reading</h2>
-        <ul className="list-disc ml-6 text-gray-700 space-y-2">
-          <li>
-            <a className="text-blue-600 hover:underline" href="https://www.unep.org" target="_blank">
-              UNEP: Global Pollution Reports
-            </a>
-          </li>
-          <li>
-            <a className="text-blue-600 hover:underline" href="https://www.ipcc.ch" target="_blank">
-              IPCC Climate & Air Quality Findings
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-blue-600 hover:underline"
-              href="https://cpcb.nic.in"
-              target="_blank"
-            >
-              Central Pollution Control Board (India)
-            </a>
-          </li>
-        </ul>
-      </section>
-    )}
+  const resources = [
+    {
+      name: "UNEP — Global Pollution Reports",
+      url: "https://www.unep.org",
+    },
+    {
+      name: "IPCC — Climate & Air Quality Findings",
+      url: "https://www.ipcc.ch",
+    },
+    {
+      name: "Central Pollution Control Board (India)",
+      url: "https://cpcb.nic.in",
+    },
+  ];
+
+  return (
+    <section className="mt-20 anim-slide-up">
+      <h2 className="text-2xl font-semibold text-blue-900 mb-6">
+        Further Reading
+      </h2>
+
+      <div className="space-y-4">
+        {resources.map((item, idx) => (
+          <a
+            key={idx}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group flex items-center justify-between
+              rounded-xl border border-gray-200 bg-white
+              px-5 py-4 text-gray-800
+              transition-all duration-200
+              hover:border-blue-300 hover:bg-blue-50
+            "
+          >
+            <span className="font-medium">
+              {item.name}
+            </span>
+
+            <FiExternalLink
+              className="
+                text-blue-600 transition-transform duration-200
+                group-hover:translate-x-1
+              "
+            />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}

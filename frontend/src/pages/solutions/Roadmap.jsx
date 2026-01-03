@@ -1,35 +1,30 @@
-
 const roadmap = [
-    "Real-time AQI grid monitoring in all major cities",
-    "100% transition to clean public transport (CNG, EV, hydrogen)",
-    "Heavy industries relocation outside city boundaries",
-    "Strict construction dust control laws",
-    "Massive city plantation and green buffer zones",
-    "ULEZ in all metro cities",
-    "Incentives for rooftop solar in all households",
+  "Real-time AQI grid monitoring in all major cities",
+  "100% transition to clean public transport (CNG, EV, hydrogen)",
+  "Heavy industries relocation outside city boundaries",
+  "Strict construction dust control laws",
+  "Massive city plantation and green buffer zones",
+  "ULEZ implementation in all metro cities",
+  "Incentives for rooftop solar in all households",
 ];
 
-
 export default function Roadmap() {
-    return (
-        <>
+  return (
+    <section className="mt-20 anim-slide-up">
+      <h2 className="text-2xl font-semibold text-blue-900 mb-10">
+        Proposed Air Quality Roadmap
+      </h2>
 
-            <section className="mt-16 bg-gray-100 p-8 rounded-2xl border shadow transition-all duration-200 ease-out
-        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
-        cursor-pointer">
-                <h2 className="text-2xl font-bold mb-6">Proposed Air Quality Roadmap</h2>
-
-                <div className="relative border-l border-gray-400 ">
-                    {roadmap.map((step, i) => (
-                        <div key={i} className="ml-6 mb-6">
-                            <div className="w-3 h-3 bg-blue-500 rounded-full absolute -left-1.5 mt-1.5"></div>
-                            <p className="text-gray-700 text-lg">{step}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-
-        </>
-    );
+      <div className="relative border-l border-gray-300 pl-8 space-y-8">
+        {roadmap.map((step, i) => (
+          <div key={i} className="relative pl-4">
+            <span className="absolute -left-[14px] top-1.5 w-3 h-3 rounded-full bg-blue-600" />
+            <p className="text-gray-700 text-lg leading-relaxed">
+              {step}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }

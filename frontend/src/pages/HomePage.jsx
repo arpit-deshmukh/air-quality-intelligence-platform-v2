@@ -1,13 +1,6 @@
-import React from 'react'
 import Home from './Home'
-import Compare from './compare/Compare'
 import Explore from './Explore'
-import Analytics from './Analytics'
 import AQIInfo from './AQIInfo/AQIInfoPage'
-import ResearchPage from './Research/ResearchPage'
-import SolutionsPage from './solutions/SolutionPage'
-import Research from './Research/Research'
-import Solutions from './solutions/Solutions'
 
 export default function HomePage() {
   return (
@@ -18,13 +11,6 @@ export default function HomePage() {
       <br />
       <AQIInfo />
       <Explore />
-      
-
-
-
-
-
     </>
   )
 }
-

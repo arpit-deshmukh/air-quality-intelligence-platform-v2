@@ -3,70 +3,134 @@
 @tailwind utilities;
 
 
-html, body {
-background-color:lightgray;
+
+
+body {
   margin: 0;
   padding: 0;
   min-height: 100%;
   font-family: 'Inter', sans-serif;
+  background: linear-gradient(
+    180deg,
+    #e3e8f1 0%,
+    #e9edf4 40%,
+    #f1f4f9 100%
+  );
 }
 
-/* scroll bar */
+
 html {
   scroll-behavior: smooth;
 }
 
 
+:root {
+  --bg-page: transparent;
+  --bg-card: rgba(255, 255, 255, 0.5);
+  --border-soft: #e5e7eb;
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+
+  --brand: #2563eb;
+  --brand-hover: #1d4ed8;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+
 .card {
-  @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6 transition-all;
+  @apply rounded-xl border p-6 transition-all duration-200;
+  background-color: var(--bg-card);
+  border-color: var(--border-soft);
 }
 
 .card:hover {
   @apply shadow-md;
 }
 
-
-
 .page-gradient {
-  background: linear-gradient(to bottom, #ffffff 0%, #F4F6F8 100%);
+  background: transparent;
 }
 
 
 .section-title {
-  @apply text-2xl font-semibold text-gray-900 mb-3;
+  @apply text-2xl font-semibold mb-3;
 }
 
 .section-subtitle {
-  @apply text-gray-600 text-lg mb-8;
+  @apply text-lg mb-8;
+  color: var(--text-secondary);
 }
 
 
 .btn-primary {
-  @apply bg-blue-600 text-white px-4 py-2 rounded-lg shadow 
-         hover:bg-blue-700 transition-all;
+  @apply px-4 py-2 rounded-lg text-white font-medium
+         transition-all duration-200;
+  background-color: var(--brand);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-hover);
+}
+
+.btn-primary:focus-visible {
+  @apply outline-none ring-2 ring-blue-400 ring-offset-2;
 }
 
 .btn-outline {
-  @apply border border-gray-400 px-4 py-2 rounded-lg text-gray-700 
-         hover:bg-gray-100 transition-all;
+  @apply px-4 py-2 rounded-lg font-medium
+         border transition-all duration-200;
+  border-color: var(--border-soft);
+  color: var(--text-primary);
 }
 
-.fade-in {
-  animation: fadein 0.5s ease-out;
+.btn-outline:hover {
+  @apply bg-gray-100;
+}
+
+.btn-outline:focus-visible {
+  @apply outline-none ring-2 ring-gray-400 ring-offset-2;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fadein 0.4s ease-out;
+  }
+
+  .slide-down {
+    animation: slidedown 0.35s ease-out;
+  }
 }
 
 @keyframes fadein {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.slide-down {
-  animation: slidedown 0.35s ease-out;
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slidedown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -75,15 +139,94 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c7d0;
+  background: #c7ccd6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #eef0f2;
+  background: #eef1f5;
 }
 
 
-/* background */
 
 
+@media (prefers-reduced-motion: no-preference) {
+
+
+  .anim-fade {
+    animation: anim-fade 0.35s ease-out both;
+  }
+
+
+  .anim-slide-up {
+    animation: anim-slide-up 0.45s ease-out both;
+  }
+
+
+  .anim-slide-down {
+    animation: anim-slide-down 0.35s ease-out both;
+  }
+
+
+  .anim-scale {
+    animation: anim-scale 0.3s ease-out both;
+  }
+
+
+  .anim-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .anim-hover:hover {
+    transform: translateY(-2px);
+  }
+
+
+  .anim-press:active {
+    transform: scale(0.97);
+  }
+}
+
+
+
+@keyframes anim-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes anim-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

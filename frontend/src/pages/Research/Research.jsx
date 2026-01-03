@@ -36,51 +36,69 @@ const researchList = [
 ];
 
 
-
 export default function Research() {
   return (
+    <div className="page-gradient min-h-screen px-6 py-10 max-w-5xl mx-auto">
 
-    <div className="page-gradient min-h-screen p-6 max-w-5xl mx-auto ">
-      <h1 className="text-3xl font-bold text-blue-900 mb-2">AQI Research & Studies</h1>
-      <p className="section-subtitle">
-        A curated collection of scientific studies, global datasets, and research insights.
-      </p>
+      <header className="mb-10">
+        <h1 className="text-3xl font-semibold text-blue-900 mb-2">
+          AQI Research & Studies
+        </h1>
+        <p className="text-gray-600 max-w-2xl">
+          A curated collection of scientific studies, peer-reviewed journals,
+          and global air quality datasets.
+        </p>
+      </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {researchList.map((item, idx) => (
-          <div
+          <a
             key={idx}
-            className="card fade-in border-l-4 border-blue-500 rounded-lg p-6 bg-white shadow-sm transition-all duration-200 ease-out
-        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
-        cursor-pointer"
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group block rounded-2xl border border-gray-200
+              bg-white overflow-hidden
+              transition-all duration-300 ease-out
+              hover:-translate-y-1 hover:shadow-xl
+            "
           >
-            <div className="w-full h-40 mb-4 overflow-hidden rounded-md ">
+            <div className="h-40 overflow-hidden">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                className="
+                  w-full h-full object-cover
+                  transition-transform duration-500
+                  group-hover:scale-105
+                "
               />
             </div>
 
-            <h2 className="text-xl font-semibold text-gray-900">{item.title}</h2>
-            <p className="text-sm text-gray-500 mb-3">{item.source}</p>
-            <p className="text-gray-700 leading-relaxed">{item.summary}</p>
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-wide text-blue-700 font-medium mb-2">
+                {item.source}
+              </p>
 
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 mt-3 inline-block hover:underline font-medium"
-            >
-              Read more →
-            </a>
-          </div>
+              <h2 className="text-lg font-semibold text-gray-900 leading-snug mb-3">
+                {item.title}
+              </h2>
+
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                {item.summary}
+              </p>
+
+              <span className="inline-flex items-center text-sm font-medium text-blue-600">
+                Read full study
+                <span className="ml-1 transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
+            </div>
+          </a>
         ))}
       </div>
-
-
-
-
 
     </div>
   );

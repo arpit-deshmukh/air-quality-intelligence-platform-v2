@@ -3,16 +3,26 @@ import Loader from "../../components/common/Loader";
 import ErrorBox from "../../components/common/ErrorBox";
 
 export default function LiveAQIResult({ loading, error, data }) {
-  if (loading) return <Loader />;
-  if (error) return <ErrorBox message={error} />;
+  if (loading) {
+    return (
+      <div className="flex justify-center mt-10 anim-fade">
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center mt-10 anim-fade">
+        <ErrorBox message={error} />
+      </div>
+    );
+  }
+
   if (!data) return null;
 
   return (
-    <div className="flex justify-center mt-4 transition-all duration-200 ease-out
-        hover:shadow-xl hover:scale-[1.02] hover:border-blue-200
-        cursor-pointer">
-
-
+    <div className="flex justify-center mt-10 anim-slide-up">
       <AQICard {...data} />
     </div>
   );
