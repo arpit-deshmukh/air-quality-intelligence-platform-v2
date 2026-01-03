@@ -28,29 +28,37 @@ export default function ComparePage() {
   }, [city1, city2]);
 
   const loadAQI = async () => {
-     try {
-        const c1 = await fetchLiveAQI(city1);
-        const c2 = await fetchLiveAQI(city2);
+    try {
+      const c1 = await fetchLiveAQI(city1);
+      const c2 = await fetchLiveAQI(city2);
 
-        setAqi1({
-          aqi: c1?.aqi ?? null,
-          pollutants: normalizePollutants(c1?.pollutants),
-        });
+      setAqi1({
+        aqi: c1?.aqi ?? null,
+        pollutants: normalizePollutants(c1?.pollutants),
+      });
 
-        setAqi2({
-          aqi: c2?.aqi ?? null,
-          pollutants: normalizePollutants(c2?.pollutants),
-        });
-     } catch (err) {
-        console.log("ComparePage Error:", err);
-     }
+      setAqi2({
+        aqi: c2?.aqi ?? null,
+        pollutants: normalizePollutants(c2?.pollutants),
+      });
+    } catch (err) {
+      console.log("ComparePage Error:", err);
+    }
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">AQI City Comparison</h1>
+    <div className="max-w-6xl mx-auto px-6 py-12 anim-fade">
+      <header className="mb-10 anim-slide-up">
+        <h1 className="text-3xl font-semibold text-blue-900 mb-2">
+          AQI City Comparison
+        </h1>
+        <p className="text-gray-600 max-w-xl">
+          Compare air quality levels, trends, and pollutant composition
+          between two cities.
+        </p>
+      </header>
 
-      <div className="bg-white shadow p-6 rounded-xl mb-8">
+      <div className="rounded-xl border border-gray-300 bg-white p-6 mb-10 hover:shadow-md transition anim-slide-up">
         <CitySelect
           city1={city1}
           city2={city2}
@@ -60,12 +68,12 @@ export default function ComparePage() {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-6 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14 anim-slide-up">
         <AQICompareCard title={city1} aqi={aqi1?.aqi} />
         <AQICompareCard title={city2} aqi={aqi2?.aqi} />
       </div>
 
-      <div className="bg-white shadow p-6 rounded-xl mb-10">
+      <div className="rounded-xl border border-gray-300 bg-white p-6 mb-16 hover:shadow-md transition anim-slide-up">
         <ChartCompare
           city1={city1}
           city2={city2}
@@ -74,7 +82,7 @@ export default function ComparePage() {
         />
       </div>
 
-      <div className="bg-white shadow p-6 rounded-xl">
+      <div className="rounded-xl border border-gray-300 bg-white p-6 hover:shadow-md transition anim-slide-up">
         <PollutantTable
           city1={city1}
           city2={city2}

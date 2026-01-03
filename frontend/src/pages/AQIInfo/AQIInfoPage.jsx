@@ -4,21 +4,20 @@ import AQIImageCard2 from "./AQIImageCard2";
 
 export default function AQIInfo() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-10 anim-fade">
-
-      <header className="text-center mb-14 anim-slide-up">
-        <h1 className="text-4xl font-semibold text-blue-900 mb-4">
+    <div className="max-w-6xl mx-auto px-6 py-12 anim-fade">
+      <header className="text-center mb-16 anim-slide-up">
+        <h1 className="text-4xl font-semibold text-blue-900 mb-4 leading-tight">
           Air Quality Index (AQI) Guide
         </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
           A clear and practical breakdown of AQI, its health impact,
           and steps you can take to stay safe.
         </p>
       </header>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center anim-slide-up">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center anim-slide-up">
         <InfoCard title="What is AQI?">
-          <p className="text-gray-700 leading-relaxed">
+          <p>
             Air Quality Index (AQI) is a standardized scale that indicates
             how polluted the air is. It tracks key pollutants such as
             PM2.5, PM10, NO₂, SO₂, CO, and O₃ to assess health risks.
@@ -31,21 +30,21 @@ export default function AQIInfo() {
         />
       </section>
 
-      <section className="mt-16 anim-slide-up">
+      <section className="mt-20 anim-slide-up">
         <AQIImageCard2
           src="/images/aqi-2.png"
           alt="AQI Category Guide Diagram"
         />
       </section>
 
-      <section className="mt-20 anim-slide-up">
-        <h2 className="text-2xl font-semibold text-blue-900 mb-6">
+      <section className="mt-24 anim-slide-up">
+        <h2 className="text-2xl font-semibold text-blue-900 mb-8">
           Health Impact
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <InfoCard title="Effects on Health">
-            <ul className="list-disc ml-5 text-gray-700 space-y-2 leading-relaxed">
+            <ul className="list-disc ml-5 space-y-2">
               <li>High AQI increases risk of respiratory and heart diseases.</li>
               <li>PM2.5 particles penetrate deep into lungs and bloodstream.</li>
               <li>Children, elderly, and pregnant women are most vulnerable.</li>
@@ -60,14 +59,14 @@ export default function AQIInfo() {
         </div>
       </section>
 
-      <section className="mt-20 anim-slide-up">
-        <h2 className="text-2xl font-semibold text-blue-900 mb-6">
+      <section className="mt-24 anim-slide-up">
+        <h2 className="text-2xl font-semibold text-blue-900 mb-8">
           Precautionary Measures
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <InfoCard title="Stay Safe">
-            <div className="space-y-3 text-gray-700 leading-relaxed">
+            <div className="space-y-2">
               <p>• Wear an N95 mask when AQI exceeds 200</p>
               <p>• Use indoor air purifiers</p>
               <p>• Avoid outdoor exercise during poor AQI</p>
@@ -81,7 +80,6 @@ export default function AQIInfo() {
           />
         </div>
       </section>
-
     </div>
   );
 }

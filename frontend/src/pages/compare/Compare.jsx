@@ -7,30 +7,40 @@ import ChartCompare from "./components/ChartCompare";
 
 export default function Compare() {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">Compare Two Cities</h1>
+    <div className="max-w-6xl mx-auto px-6 py-12 anim-fade">
+      <header className="mb-10 anim-slide-up">
+        <h1 className="text-3xl font-semibold text-blue-900 mb-2">
+          Compare Two Cities
+        </h1>
+        <p className="text-gray-600 max-w-xl">
+          Side-by-side air quality comparison to understand pollution levels,
+          trends, and health impact.
+        </p>
+      </header>
 
-      <CitySelect />
+      <section className="mb-10 anim-slide-up">
+        <CitySelect />
+      </section>
 
-      <div className="mt-8">
+      <section className="mb-12 anim-slide-up">
         <AQIScoreBox />
-      </div>
+      </section>
 
-      <div className="mt-8">
+      <section className="mb-14 anim-slide-up">
         <ComparisonCards />
-      </div>
+      </section>
 
-      <div className="mt-10">
+      <section className="mb-16 anim-slide-up">
         <PollutantBars />
-      </div>
+      </section>
 
-      <div className="mt-12">
+      <section className="mb-16 anim-slide-up">
         <ChartCompare />
-      </div>
+      </section>
 
-      <div className="mt-12">
+      <section className="anim-slide-up">
         <SuggestionBox />
-      </div>
+      </section>
     </div>
   );
 }

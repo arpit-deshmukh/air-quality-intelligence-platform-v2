@@ -1,7 +1,7 @@
 export default function AQICard({ city, aqi, pm25, pm10, no2, so2, o3, co }) {
   const getColor = (aqi) => {
     if (aqi <= 50) return "bg-green-500";
-    if (aqi <= 100) return "bg-yellow-400";
+    if (aqi <= 100) return "bg-yellow-400 text-black";
     if (aqi <= 200) return "bg-orange-500";
     if (aqi <= 300) return "bg-red-500";
     if (aqi <= 400) return "bg-purple-600";
@@ -9,23 +9,52 @@ export default function AQICard({ city, aqi, pm25, pm10, no2, so2, o3, co }) {
   };
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-xl border border-gray-100 w-full max-w-xl animate-fadeIn">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-semibold">{city}</h2>
-        <div className={`text-white px-4 py-2 rounded-lg ${getColor(aqi)}`}>
-          AQI: {aqi}
+    <div className="bg-white border border-gray-300 rounded-xl p-6 w-full max-w-xl
+                    shadow-sm transition-all duration-300
+                    hover:-translate-y-1 hover:shadow-md anim-fade">
+      <div className="flex justify-between items-start gap-4">
+        <h2 className="text-xl font-semibold text-gray-900 leading-tight">
+          {city}
+        </h2>
+
+        <div
+          className={`px-4 py-1.5 rounded-lg text-sm font-medium text-white whitespace-nowrap ${getColor(
+            aqi
+          )}`}
+        >
+          AQI {aqi}
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mt-4 text-sm text-gray-700">
-        <p><b>PM2.5:</b> {pm25}</p>
-        <p><b>PM10:</b> {pm10}</p>
+      <div className="h-px bg-gray-100 my-5" />
 
-        <p><b>NO₂:</b> {no2}</p>
-        <p><b>SO₂:</b> {so2}</p>
+      <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+        <div className="flex justify-between text-gray-700">
+          <span>PM2.5</span>
+          <span className="font-medium">{pm25}</span>
+        </div>
+        <div className="flex justify-between text-gray-700">
+          <span>PM10</span>
+          <span className="font-medium">{pm10}</span>
+        </div>
 
-        <p><b>O₃:</b> {o3}</p>
-        <p><b>CO:</b> {co}</p>
+        <div className="flex justify-between text-gray-700">
+          <span>NO₂</span>
+          <span className="font-medium">{no2}</span>
+        </div>
+        <div className="flex justify-between text-gray-700">
+          <span>SO₂</span>
+          <span className="font-medium">{so2}</span>
+        </div>
+
+        <div className="flex justify-between text-gray-700">
+          <span>O₃</span>
+          <span className="font-medium">{o3}</span>
+        </div>
+        <div className="flex justify-between text-gray-700">
+          <span>CO</span>
+          <span className="font-medium">{co}</span>
+        </div>
       </div>
     </div>
   );
