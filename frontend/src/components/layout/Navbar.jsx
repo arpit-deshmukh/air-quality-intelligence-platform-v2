@@ -8,7 +8,7 @@ export default function Navbar() {
   const navItems = [
     ["Home", "/"],
     ["Models", "/solutionsPage"],
-    ["AQI Info", "/aqi-info"],
+    ["Store", "/store"],
     ["Research", "/researchPage"],
     ["Explore", "/explorePage"],
   ];

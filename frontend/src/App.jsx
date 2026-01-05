@@ -10,6 +10,7 @@ import Analytics from "./pages/Analytics.jsx";
 import AQIInfoPage from "./pages/AQIInfo/AQIInfoPage.jsx";
 import ResearchPage from "./pages/Research/ResearchPage.jsx";
 import SolutionsPage from "./pages/solutions/SolutionPage.jsx";
+import StorePage from "./pages/StorePage.jsx";
 
 import City from "./pages/City.jsx";
 
@@ -35,6 +36,8 @@ export default function App() {
           <Route path="/researchPage" element={<ResearchPage />} />
           <Route path="/solutionsPage" element={<SolutionsPage />} />
           <Route path="/meta" element={<Meta />} />
+
+          <Route path="/store" element={<StorePage />} />
         </Routes>
 
         <Footer />
