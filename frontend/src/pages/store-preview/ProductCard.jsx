@@ -1,17 +1,32 @@
 export default function ProductCard({ product }) {
   return (
-    <div className="rounded-2xl border bg-white p-5 shadow-sm hover:shadow-md transition">
-
-
-      <div className="mb-4 flex h-40 items-center justify-center rounded-xl bg-gray-50">
+    <div
+      className="
+        group
+        rounded-2xl border border-gray-200
+        bg-gray-50 p-5
+        shadow-sm transition-all duration-300 ease-out
+        hover:-translate-y-1 hover:shadow-lg hover:scale-[1.02]
+        hover:bg-white
+      "
+    >
+      {/* Image Section */}
+      <div
+        className="
+          mb-4 flex h-40 items-center justify-center
+          rounded-xl bg-gray-100
+          transition-transform duration-300 ease-out
+          group-hover:rotate-[1deg] group-hover:scale-105
+        "
+      >
         <img
           src={product.image}
           alt={product.name}
-          className="h-28 object-contain"
+          className="h-28 object-contain transition-transform duration-300"
         />
       </div>
 
-      <div className="mb-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">
+      <div className="mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-xs text-gray-700">
         {product.tag}
       </div>
 
@@ -30,7 +45,11 @@ export default function ProductCard({ product }) {
 
         <button
           disabled
-          className="cursor-not-allowed rounded-lg bg-gray-200 px-4 py-2 text-sm text-gray-600"
+          className="
+            cursor-not-allowed rounded-lg
+            bg-gray-200 px-4 py-2
+            text-sm text-gray-600
+          "
         >
           Coming Soon
         </button>
