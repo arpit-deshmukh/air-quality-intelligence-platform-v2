@@ -4,7 +4,7 @@ import { generateToken } from "../utils/token.js";
 
 const router = express.Router();
 
-// Register
+
 router.post("/register", async (req, res, next) => {
   try {
     const { email, password } = req.body;

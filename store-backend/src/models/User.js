@@ -18,13 +18,13 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// 🔥 FIXED HERE
+
 userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
   this.password = await bcrypt.hash(this.password, 10);
 });
 
-// Compare password during login
+
 userSchema.methods.comparePassword = function (candidate) {
   return bcrypt.compare(candidate, this.password);
 };
