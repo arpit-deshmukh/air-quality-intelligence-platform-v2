@@ -1,11 +1,7 @@
-import dotenv from "dotenv";
-
-
 import app from "./app.js";
-dotenv.config();
+import { env } from "./config/env.js";
+import { logger } from "./utils/logger.js";
 
-const PORT = process.env.PORT || 8080;
-
-app.listen(PORT, () => {
-  console.log(` AQI Store Backend running on port ${PORT}`);
+app.listen(env.port, () => {
+  logger.info(`AQI Store Backend running on port ${env.port}`);
 });
