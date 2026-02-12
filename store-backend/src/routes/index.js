@@ -4,10 +4,11 @@ import productRoutes from "./product.routes.js";
 import cartRoutes from "./cart.routes.js";
 import categoryRoutes from "./category.routes.js";
 import orderRoutes from "./order.routes.js";
+import paymentRoutes from "./payment.routes..js";
 
 const router = express.Router();
 
-router.get("/health", (req, res) => {
+router.get("/", (req, res) => {
   res.json({ status: "ok", service: "AQI Store API" });
 });
 
@@ -16,6 +17,7 @@ router.use("/products", productRoutes);
 router.use("/cart", cartRoutes);
 router.use("/categories", categoryRoutes);
 router.use("/orders", orderRoutes);
+router.use("/payments", paymentRoutes);
 
 
 export default router;
