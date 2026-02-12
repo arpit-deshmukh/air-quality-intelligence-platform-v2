@@ -1,23 +1,22 @@
-import { FiShoppingBag } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-3 bg-white">
-      
-      <FiShoppingBag className="text-gray-800" size={40} />
-
-      <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
-        AQI Store
+    <section className="space-y-3">
+      <h1 className="text-2xl font-semibold">
+        Clean air intelligence
       </h1>
 
-      <p className="text-sm text-gray-500">
-        Clean air intelligence, delivered.
+      <p className="text-muted text-sm">
+        Reports, data, and insights powered by AQI.
       </p>
 
-      <span className="text-sm text-red-600">
-        Tailwind working 
-      </span>
-
-    </main>
+      <Link
+        to="/products"
+        className="inline-block text-sm underline"
+      >
+        Browse products
+      </Link>
+    </section>
   );
 }
