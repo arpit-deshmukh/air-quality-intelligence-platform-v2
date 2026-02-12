@@ -6,6 +6,8 @@ import ProductDetail from "../pages/ProductDetail";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";
 
+import Checkout from "../pages/Checkout";
+import Success from "../pages/Success";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -15,7 +17,9 @@ export const router = createBrowserRouter([
       { path: "products", element: <Products /> },
       { path: "products/:slug", element: <ProductDetail /> },
       { path: "login", element: <Login /> },
-      { path: "cart", element: <Cart /> }
+      { path: "cart", element: <Cart /> },
+      { path: "checkout", element: <Checkout /> },
+      { path: "success", element: <Success /> }
     ]
   }
 ]);

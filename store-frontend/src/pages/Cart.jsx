@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 export default function Cart() {
@@ -17,9 +18,18 @@ export default function Cart() {
           className="border p-3 flex justify-between"
         >
           <span>{item.name}</span>
-          <span>₹{item.price} × {item.quantity}</span>
+          <span>
+            ₹{item.price} × {item.quantity}
+          </span>
         </div>
       ))}
+
+      <Link
+        to="/checkout"
+        className="inline-block border px-4 py-2 text-sm"
+      >
+        Checkout
+      </Link>
     </div>
   );
 }
