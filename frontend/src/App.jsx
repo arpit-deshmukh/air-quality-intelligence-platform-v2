@@ -28,57 +28,56 @@ import Footer from "./components/layout/Footer.jsx";
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="fog-bg">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-black text-white transition-colors duration-300">
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+        <main className="relative">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
 
-          <Route path="/explorePage" element={<ExplorePage />} />
-          <Route path="/comparePage" element={<ComparePage />} />
+            <Route path="/explorePage" element={<ExplorePage />} />
+            <Route path="/comparePage" element={<ComparePage />} />
 
-          <Route path="/city/:cityName" element={<City />} />
+            <Route path="/city/:cityName" element={<City />} />
 
-          <Route path="/analyticsPage" element={<Analytics />} />
-          <Route path="/aqi-info" element={<AQIInfoPage />} />
-          <Route path="/researchPage" element={<ResearchPage />} />
-          <Route path="/solutionsPage" element={<SolutionsPage />} />
-          <Route path="/meta" element={<Meta />} />
+            <Route path="/analyticsPage" element={<Analytics />} />
+            <Route path="/aqi-info" element={<AQIInfoPage />} />
+            <Route path="/researchPage" element={<ResearchPage />} />
+            <Route path="/solutionsPage" element={<SolutionsPage />} />
+            <Route path="/meta" element={<Meta />} />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-          <Route
-            path="/store"
-            element={
-              <ProtectedRoute>
-                <StoreHome />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/store/products"
-            element={
-              <ProtectedRoute>
-                <StoreProducts />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/store/cart"
-            element={
-              <ProtectedRoute>
-                <StoreCart />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+            <Route
+              path="/store"
+              element={
+                <ProtectedRoute>
+                  <StoreHome />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/store/products"
+              element={
+                <ProtectedRoute>
+                  <StoreProducts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/store/cart"
+              element={
+                <ProtectedRoute>
+                  <StoreCart />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </main>
 
         <Footer />
-
       </div>
-
-
     </BrowserRouter>
   );
 }

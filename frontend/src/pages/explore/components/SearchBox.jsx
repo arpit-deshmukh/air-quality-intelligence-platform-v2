@@ -4,8 +4,12 @@ export default function SearchBox({ value, onChange }) {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder="Search city..."
-      className="w-full mt-4 px-4 py-3 rounded-xl border border-gray-300 bg-white shadow-sm text-sm text-gray-800
-                 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+      className="w-full mt-4 px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2"
+      style={{
+        background: "#1e293b",
+        border: "1px solid rgba(51, 65, 85, 0.5)",
+        color: "#f1f5f9",
+      }}
     />
   );
 }

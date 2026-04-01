@@ -1,55 +1,33 @@
 import { useEffect, useRef, useState } from "react";
 
-const pollutants = [
+const POLLUTANTS = [
   {
     name: "PM2.5",
-    color: "bg-blue-500",
+    icon: "🌫️",
     meaning: "Fine inhalable particles that penetrate deep into the lungs.",
     source: "Vehicle exhaust, biomass burning, dust, and construction.",
-    health: "Triggers asthma, reduces lung function, causes long-term respiratory issues.",
-    guidance: "Avoid outdoor exercise; wear a mask; keep windows closed during rush hours.",
+    health: "Triggers asthma, reduces lung function, causes respiratory issues.",
+    guidance: "Avoid outdoor exercise; wear mask; keep windows closed.",
   },
   {
     name: "PM10",
-    color: "bg-indigo-500",
-    meaning: "Coarse dust particles that irritate the eyes, nose, and throat.",
-    source: "Road dust, construction, soil, and industrial activity.",
-    health: "Short-term breathing discomfort; worsens asthma.",
-    guidance: "Avoid dusty roads; consider wearing a mask outdoors.",
+    icon: "💨",
+    meaning: "Coarse dust particles.",
+    source: "Road dust, construction.",
+    health: "Breathing discomfort.",
+    guidance: "Avoid dusty areas.",
   },
   {
     name: "NO₂",
-    color: "bg-purple-500",
-    meaning: "Toxic gas mainly produced from vehicles and industrial activity.",
-    source: "Traffic congestion, diesel vehicles, power plants.",
-    health: "Reduces lung function and worsens asthma.",
-    guidance: "Avoid main roads during peak traffic hours.",
-  },
-  {
-    name: "SO₂",
-    color: "bg-rose-500",
-    meaning: "Gas produced from burning coal and industrial activities.",
-    source: "Thermal power plants, factories, and fuel combustion.",
-    health: "Irritates eyes and throat; harmful for people with asthma.",
-    guidance: "Asthma patients should stay indoors.",
-  },
-  {
-    name: "CO",
-    color: "bg-amber-500",
-    meaning: "Colorless gas from incomplete combustion.",
-    source: "Vehicles, stoves, heaters, industrial burners.",
-    health: "Reduces oxygen supply; causes dizziness and headaches.",
-    guidance: "Avoid enclosed parking areas; reduce exposure to traffic.",
-  },
-  {
-    name: "O₃",
-    color: "bg-teal-500",
-    meaning: "Ground-level ozone formed by sunlight reacting with pollutants.",
-    source: "Strong sunlight combined with traffic emissions.",
-    health: "Causes coughing, throat irritation, and chest discomfort.",
-    guidance: "Avoid outdoor activities during afternoon hours.",
+    icon: "🏭",
+    meaning: "Toxic gas from vehicles.",
+    source: "Traffic, industries.",
+    health: "Reduces lung function.",
+    guidance: "Avoid traffic areas.",
   },
 ];
+
+const AUTO_ROTATE_MS = 5000;
 
 export default function PollutantInfoCarousel() {
   const [index, setIndex] = useState(0);
@@ -58,80 +36,70 @@ export default function PollutantInfoCarousel() {
 
   const startTimer = () => {
     intervalRef.current = setInterval(() => {
-      setIndex((prev) => (prev + 1) % pollutants.length);
-    }, 4500);
+      setIndex((prev) => (prev + 1) % POLLUTANTS.length);
+    }, AUTO_ROTATE_MS);
   };
 
-  const stopTimer = () => {
-    clearInterval(intervalRef.current);
-  };
+  const stopTimer = () => clearInterval(intervalRef.current);
 
   useEffect(() => {
     if (!paused) startTimer();
     return stopTimer;
   }, [paused]);
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % pollutants.length);
-  };
+  const next = () => setIndex((prev) => (prev + 1) % POLLUTANTS.length);
+  const prev = () => setIndex((prev) => (prev === 0 ? POLLUTANTS.length - 1 : prev - 1));
 
-  const prev = () => {
-    setIndex((prev) => (prev === 0 ? pollutants.length - 1 : prev - 1));
-  };
-
-  const p = pollutants[index];
+  const p = POLLUTANTS[index];
 
   return (
-    <section className="mt-14 max-w-2xl mx-auto text-center anim-fade">
-      <h2 className="text-xl font-semibold text-blue-900 mb-4">
-        Common Air Pollutants & Their Impact
+    <section className="max-w-4xl mx-auto text-center">
+      <h2 className="text-3xl font-bold mb-4" style={{ color: "#e2e8f0" }}>
+        Air Pollutant Information
       </h2>
 
       <div
-        className="rounded-xl border border-gray-300 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+        className="p-6 rounded-xl transition-all duration-300"
+        style={{ border: "1px solid rgba(51, 65, 85, 0.5)", background: "rgba(15, 23, 42, 0.7)" }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div className={`${p.color} text-white py-2 text-base font-semibold`}>
-          {p.name}
+        <h3 className="text-xl font-bold mb-2" style={{ color: "#e2e8f0" }}>
+          {p.icon} {p.name}
+        </h3>
+
+        <div className="text-left space-y-1" style={{ color: "#94a3b8" }}>
+          <p><strong style={{ color: "#cbd5e1" }}>Meaning:</strong> {p.meaning}</p>
+          <p><strong style={{ color: "#cbd5e1" }}>Source:</strong> {p.source}</p>
+          <p><strong style={{ color: "#cbd5e1" }}>Health:</strong> {p.health}</p>
+          <p><strong style={{ color: "#cbd5e1" }}>Guidance:</strong> {p.guidance}</p>
         </div>
 
-        <div className="p-4 space-y-1.5 text-sm text-gray-700 leading-relaxed">
-          <p><b>Meaning:</b> {p.meaning}</p>
-          <p><b>Sources:</b> {p.source}</p>
-          <p><b>Health impact:</b> {p.health}</p>
-          <p className="pt-1 text-xs font-medium text-blue-900">
-            Guidance: {p.guidance}
-          </p>
-        </div>
-
-        <div className="flex justify-between px-4 pb-2 text-xs">
+        <div className="flex justify-between mt-4">
           <button
             onClick={prev}
-            className="text-gray-500 hover:text-blue-600 transition"
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            style={{ background: "rgba(30, 41, 59, 0.6)", color: "#94a3b8", border: "1px solid rgba(51,65,85,0.5)" }}
           >
-            ← Previous
+            Prev
           </button>
-
+          <div className="flex gap-2 items-center">
+            {POLLUTANTS.map((_, i) => (
+              <span
+                key={i}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ background: i === index ? "#6366f1" : "rgba(51, 65, 85, 0.5)" }}
+              />
+            ))}
+          </div>
           <button
             onClick={next}
-            className="text-gray-500 hover:text-blue-600 transition"
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            style={{ background: "rgba(30, 41, 59, 0.6)", color: "#94a3b8", border: "1px solid rgba(51,65,85,0.5)" }}
           >
-            Next →
+            Next
           </button>
         </div>
-      </div>
-
-      <div className="flex justify-center gap-1.5 mt-3">
-        {pollutants.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`w-1.5 h-1.5 rounded-full transition-all ${
-              i === index ? "bg-blue-600 scale-125" : "bg-gray-300"
-            }`}
-          />
-        ))}
       </div>
     </section>
   );

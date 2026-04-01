@@ -5,24 +5,13 @@ import {
   PointElement,
   LineElement,
   Tooltip,
-  Legend
+  Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
 
-export default function LineChart({
-  labels = [],
-  values = [],
-  color = "#3B82F6"
-}) {
+export default function LineChart({ labels = [], values = [], color = "#6366f1" }) {
   const data = {
     labels,
     datasets: [
@@ -30,13 +19,13 @@ export default function LineChart({
         label: "AQI Trend",
         data: values,
         borderColor: color,
-        backgroundColor: "rgba(59,130,246,0.15)",
+        backgroundColor: "rgba(99, 102, 241, 0.15)",
         fill: true,
         tension: 0.35,
         pointRadius: 3,
         pointHoverRadius: 5,
         pointBackgroundColor: color,
-      }
+      },
     ],
   };
 
@@ -46,27 +35,23 @@ export default function LineChart({
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: "#111827",
-        titleColor: "#F9FAFB",
-        bodyColor: "#E5E7EB",
+        backgroundColor: "rgba(15, 23, 42, 0.95)",
+        titleColor: "#f1f5f9",
+        bodyColor: "#cbd5e1",
         padding: 10,
+        borderColor: "rgba(51, 65, 85, 0.5)",
+        borderWidth: 1,
       },
     },
     scales: {
       x: {
         grid: { display: false },
-        ticks: {
-          color: "#374151",
-          font: { size: 11, weight: "500" },
-        },
+        ticks: { color: "#94a3b8", font: { size: 11, weight: "500" } },
       },
       y: {
         beginAtZero: true,
-        grid: { color: "#E5E7EB" },
-        ticks: {
-          color: "#6B7280",
-          font: { size: 11 },
-        },
+        grid: { color: "rgba(51, 65, 85, 0.3)" },
+        ticks: { color: "#64748b", font: { size: 11 } },
       },
     },
   };

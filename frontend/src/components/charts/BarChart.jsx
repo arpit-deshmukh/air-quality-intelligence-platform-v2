@@ -4,7 +4,7 @@ import {
   LinearScale,
   BarElement,
   Tooltip,
-  Legend
+  Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
@@ -17,7 +17,7 @@ export default function BarChart({ labels = [], values = [] }) {
       {
         label: "AQI Levels",
         data: values,
-        backgroundColor: "#3B82F6",
+        backgroundColor: "#6366f1",
         borderRadius: 6,
         barThickness: 26,
       },
@@ -30,27 +30,23 @@ export default function BarChart({ labels = [], values = [] }) {
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: "#111827",
-        titleColor: "#F9FAFB",
-        bodyColor: "#E5E7EB",
+        backgroundColor: "rgba(15, 23, 42, 0.95)",
+        titleColor: "#f1f5f9",
+        bodyColor: "#cbd5e1",
         padding: 10,
+        borderColor: "rgba(51, 65, 85, 0.5)",
+        borderWidth: 1,
       },
     },
     scales: {
       x: {
         grid: { display: false },
-        ticks: {
-          color: "#374151",
-          font: { size: 11, weight: "500" },
-        },
+        ticks: { color: "#94a3b8", font: { size: 11, weight: "500" } },
       },
       y: {
         beginAtZero: true,
-        grid: { color: "#E5E7EB" },
-        ticks: {
-          color: "#6B7280",
-          font: { size: 11 },
-        },
+        grid: { color: "rgba(51, 65, 85, 0.3)" },
+        ticks: { color: "#64748b", font: { size: 11 } },
       },
     },
   };

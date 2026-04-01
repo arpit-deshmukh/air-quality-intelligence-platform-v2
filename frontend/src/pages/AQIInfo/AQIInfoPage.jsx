@@ -6,10 +6,10 @@ export default function AQIInfo() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 anim-fade">
       <header className="text-center mb-16 anim-slide-up">
-        <h1 className="text-4xl font-semibold text-blue-900 mb-4 leading-tight">
+        <h1 className="text-4xl font-semibold mb-4 leading-tight" style={{ color: "#e2e8f0" }}>
           Air Quality Index (AQI) Guide
         </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
+        <p className="max-w-2xl mx-auto text-base leading-relaxed" style={{ color: "#94a3b8" }}>
           A clear and practical breakdown of AQI, its health impact,
           and steps you can take to stay safe.
         </p>
@@ -23,7 +23,6 @@ export default function AQIInfo() {
             PM2.5, PM10, NO₂, SO₂, CO, and O₃ to assess health risks.
           </p>
         </InfoCard>
-
         <VideoCard
           src="/videos/what-is-aqi.mp4"
           caption="Understanding the Air Quality Index"
@@ -38,10 +37,9 @@ export default function AQIInfo() {
       </section>
 
       <section className="mt-24 anim-slide-up">
-        <h2 className="text-2xl font-semibold text-blue-900 mb-8">
+        <h2 className="text-2xl font-semibold mb-8" style={{ color: "#e2e8f0" }}>
           Health Impact
         </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <InfoCard title="Effects on Health">
             <ul className="list-disc ml-5 space-y-2">
@@ -51,7 +49,6 @@ export default function AQIInfo() {
               <li>Long-term exposure may lead to chronic health conditions.</li>
             </ul>
           </InfoCard>
-
           <VideoCard
             src="/videos/health-impact.mp4"
             caption="How PM2.5 affects the lungs"
@@ -60,10 +57,9 @@ export default function AQIInfo() {
       </section>
 
       <section className="mt-24 anim-slide-up">
-        <h2 className="text-2xl font-semibold text-blue-900 mb-8">
+        <h2 className="text-2xl font-semibold mb-8" style={{ color: "#e2e8f0" }}>
           Precautionary Measures
         </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <InfoCard title="Stay Safe">
             <div className="space-y-2">
@@ -73,7 +69,6 @@ export default function AQIInfo() {
               <p>• Keep windows closed when pollution levels are high</p>
             </div>
           </InfoCard>
-
           <VideoCard
             src="/videos/precaustions.mp4"
             caption="Precautionary practices during high AQI"

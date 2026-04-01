@@ -16,7 +16,7 @@ export default function Explore() {
   const loadCities = async () => {
     try {
       const res = await getExploreData();
-      setCityData(res?.data || []);  // FIX
+      setCityData(res?.data || []);
     } catch (e) {
       console.error(e);
       setCityData([]);
@@ -26,11 +26,8 @@ export default function Explore() {
 
   return (
     <div className="p-6">
-
-
       {loading && <Loader />}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {cityData.map((item, index) => (
           <CityQuickCard
             key={index}

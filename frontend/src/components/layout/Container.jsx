@@ -1,7 +1,5 @@
-import React from 'react'
-
-export default function Container() {
+export default function Container({ children }) {
   return (
-    <div>Container</div>
-  )
+    <div className="container-dark">{children}</div>
+  );
 }

@@ -76,7 +76,7 @@ export default function Explore() {
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div className="mt-12 text-center text-gray-500">
+        <div className="mt-12 text-center" style={{ color: "#64748b" }}>
           No cities match your search or filter.
         </div>
       ) : (

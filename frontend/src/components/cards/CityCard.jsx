@@ -1,7 +1,3 @@
-import React from 'react'
-
 export default function CityCard() {
-  return (
-    <div>CityCard</div>
-  )
+  return <div style={{ color: "#94a3b8" }}>CityCard</div>;
 }

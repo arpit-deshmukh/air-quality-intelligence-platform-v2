@@ -2,26 +2,16 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function FurtherReadingSolutions() {
   const resources = [
-    {
-      name: "UNEP — Global Pollution Reports",
-      url: "https://www.unep.org",
-    },
-    {
-      name: "IPCC — Climate & Air Quality Findings",
-      url: "https://www.ipcc.ch",
-    },
-    {
-      name: "Central Pollution Control Board (India)",
-      url: "https://cpcb.nic.in",
-    },
+    { name: "UNEP — Global Pollution Reports", url: "https://www.unep.org" },
+    { name: "IPCC — Climate & Air Quality Findings", url: "https://www.ipcc.ch" },
+    { name: "Central Pollution Control Board (India)", url: "https://cpcb.nic.in" },
   ];
 
   return (
     <section className="mt-20 anim-slide-up">
-      <h2 className="text-2xl font-semibold text-blue-900 mb-6">
+      <h2 className="text-2xl font-semibold mb-6" style={{ color: "#e2e8f0" }}>
         Further Reading
       </h2>
-
       <div className="space-y-4">
         {resources.map((item, idx) => (
           <a
@@ -29,23 +19,25 @@ export default function FurtherReadingSolutions() {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              group flex items-center justify-between
-              rounded-xl border border-gray-200 bg-white
-              px-5 py-4 text-gray-800
-              transition-all duration-200
-              hover:border-blue-300 hover:bg-blue-50
-            "
+            className="group flex items-center justify-between rounded-xl px-5 py-4 transition-all duration-200"
+            style={{
+              background: "rgba(15, 23, 42, 0.7)",
+              border: "1px solid rgba(51, 65, 85, 0.5)",
+              color: "#e2e8f0",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(99, 102, 241, 0.4)";
+              e.currentTarget.style.background = "rgba(99, 102, 241, 0.05)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(51, 65, 85, 0.5)";
+              e.currentTarget.style.background = "rgba(15, 23, 42, 0.7)";
+            }}
           >
-            <span className="font-medium">
-              {item.name}
-            </span>
-
+            <span className="font-medium">{item.name}</span>
             <FiExternalLink
-              className="
-                text-blue-600 transition-transform duration-200
-                group-hover:translate-x-1
-              "
+              className="transition-transform duration-200 group-hover:translate-x-1"
+              style={{ color: "#818cf8" }}
             />
           </a>
         ))}

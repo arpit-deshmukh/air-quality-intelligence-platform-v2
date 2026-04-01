@@ -1,7 +1,3 @@
-import React from 'react'
-
 export default function meta() {
-  return (
-    <div>meta</div>
-  )
+  return <div style={{ color: "#94a3b8" }}>meta</div>;
 }

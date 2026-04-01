@@ -19,7 +19,8 @@ export default function CompareInputs({ onSelectA, onSelectB }) {
   return (
     <div className="flex gap-6 mb-8">
       <select
-        className="border p-2 rounded-lg"
+        className="p-2 rounded-lg transition-all duration-200"
+        style={{ background: "#1e293b", border: "1px solid rgba(51, 65, 85, 0.5)", color: "#f1f5f9" }}
         onChange={(e) => { setCity1(e.target.value); loadA(e.target.value); }}
       >
         <option>Select City A</option>
@@ -29,7 +30,8 @@ export default function CompareInputs({ onSelectA, onSelectB }) {
       </select>
 
       <select
-        className="border p-2 rounded-lg"
+        className="p-2 rounded-lg transition-all duration-200"
+        style={{ background: "#1e293b", border: "1px solid rgba(51, 65, 85, 0.5)", color: "#f1f5f9" }}
         onChange={(e) => { setCity2(e.target.value); loadB(e.target.value); }}
       >
         <option>Select City B</option>

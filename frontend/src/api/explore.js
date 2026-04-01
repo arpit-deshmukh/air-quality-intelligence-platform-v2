@@ -1,6 +1,6 @@
-import axios from "axios";
+import { api } from "./client";
 
 export const getExploreData = async () => {
-  const res = await axios.get("/api/explore");
+  const res = await api.get("/explore");
   return res.data;
 };
