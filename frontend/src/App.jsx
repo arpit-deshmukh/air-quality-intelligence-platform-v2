@@ -14,6 +14,14 @@ import StorePage from "./pages/StorePage.jsx";
 
 import City from "./pages/City.jsx";
 
+import Login from "./components/auth/Login.jsx";
+import Register from "./components/auth/Register.jsx";
+import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
+
+import StoreHome from "./pages/store/StoreHome.jsx";
+import StoreProducts from "./pages/store/StoreProducts.jsx";
+import StoreCart from "./pages/store/StoreCart.jsx";
+
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
 
@@ -37,7 +45,33 @@ export default function App() {
           <Route path="/solutionsPage" element={<SolutionsPage />} />
           <Route path="/meta" element={<Meta />} />
 
-          <Route path="/store" element={<StorePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          <Route
+            path="/store"
+            element={
+              <ProtectedRoute>
+                <StoreHome />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/store/products"
+            element={
+              <ProtectedRoute>
+                <StoreProducts />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/store/cart"
+            element={
+              <ProtectedRoute>
+                <StoreCart />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
 
         <Footer />

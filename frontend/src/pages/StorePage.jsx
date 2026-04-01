@@ -1,11 +1,5 @@
-import StorePreview from "./store-preview/StorePreview";
+import StoreHome from "./store/StoreHome";
 
 export default function StorePage() {
-    return (
-        <div>
-
-            <StorePreview />
-           
-        </div>
-    );
+    return <StoreHome />;
 }

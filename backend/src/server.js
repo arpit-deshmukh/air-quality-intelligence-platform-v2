@@ -1,13 +1,14 @@
 
 import dotenv from "dotenv";
 import app from "./app.js";
-import connectDB from "./config/db.js";   
+import connectDB, { connectStoreDB } from "./config/db.js";
 import "./cron/fetchAQI.js";
 
 dotenv.config();
 
-// connect database
+// connect databases
 connectDB();
+connectStoreDB();
 
 const port = process.env.PORT || process.env.SERVER_PORT || 5000;
 

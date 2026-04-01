@@ -1,9 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
 
 export default function Navbar() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const { getCartItemCount } = useCart();
 
   const navItems = [
     ["Home", "/"],
@@ -55,6 +59,48 @@ export default function Navbar() {
           })}
         </div>
 
+        {/* Auth Buttons */}
+        <div className="hidden md:flex items-center gap-4 pr-4">
+          {user ? (
+            <div className="flex items-center gap-4">
+              <Link
+                to="/store/cart"
+                className="relative p-2 text-slate-300 hover:text-white transition-colors duration-200"
+                title="Shopping Cart"
+              >
+                🛒
+                {getCartItemCount() > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {getCartItemCount()}
+                  </span>
+                )}
+              </Link>
+              <span className="text-slate-300 text-sm">Welcome, {user.email}</span>
+              <button
+                onClick={logout}
+                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Link
+                to="/login"
+                className="px-4 py-2 text-slate-300 hover:text-white text-sm font-medium transition-colors duration-200"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
+        </div>
+
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-slate-200 text-2xl pr-2"
@@ -84,6 +130,53 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Mobile Auth Buttons */}
+            <div className="border-t border-slate-700 pt-4 mt-2">
+              {user ? (
+                <div className="flex flex-col gap-3">
+                  <Link
+                    to="/store/cart"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2 text-slate-300 hover:text-white transition-colors duration-200"
+                  >
+                    🛒 Cart
+                    {getCartItemCount() > 0 && (
+                      <span className="bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                        {getCartItemCount()}
+                      </span>
+                    )}
+                  </Link>
+                  <span className="text-slate-300 text-sm px-4">Welcome, {user.email}</span>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setOpen(false);
+                    }}
+                    className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-2">
+                  <Link
+                    to="/login"
+                    onClick={() => setOpen(false)}
+                    className="px-4 py-2 text-slate-300 hover:text-white text-sm font-medium transition-colors duration-200"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    onClick={() => setOpen(false)}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 text-center"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
